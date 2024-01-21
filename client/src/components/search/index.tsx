@@ -6,7 +6,7 @@ export const Search: FC = () => (
 			type="search"
 			name="search"
 			id="search"
-			className="px-3 py-2 rounded-2xl text-xl text-white bg-red-200"
+			className="px-3 py-2 rounded-2xl text-md text-gray-500 placeholder-gray-500 outline outline-1 outline-gray-300 focus-within:shadow-md focus-within:shadow-gray-400 focus-within:outline-none"
 			placeholder="Search..."
 		/>
 	</form>
