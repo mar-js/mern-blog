@@ -1,7 +1,6 @@
+import moonImg from "@/assets/moon.png";
+import sunImg from "@/assets/sun.png";
 import { FC, useState } from "react";
-
-const moonImg = "@/assets/moon.png";
-const sunImg = "@/assets/sun.png";
 
 export const SwitchColorMode: FC = () => {
 	const [colorMode, setColorMode] = useState(false);
