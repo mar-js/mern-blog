@@ -13,12 +13,12 @@ export const SwitchColorMode: FC = () => {
 		<button
 			type="button"
 			onClick={handleChangeColorMode}
-			className="border rounded-full p-2 border-blue-500"
+			className="border rounded-full p-2 border-blue-500 hover:opacity-70"
 		>
 			{colorMode ? (
-				<img src={moonImg} alt="Moon" className="object-cover w-10" />
+				<img src={moonImg} alt="Moon" className="object-cover w-6" />
 			) : (
-				<img src={sunImg} alt="Sun" className="object-cover w-10" />
+				<img src={sunImg} alt="Sun" className="object-cover w-6" />
 			)}
 		</button>
 	);
