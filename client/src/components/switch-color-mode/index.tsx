@@ -10,11 +10,15 @@ export const SwitchColorMode: FC = () => {
 	};
 
 	return (
-		<button type="button" onClick={handleChangeColorMode}>
+		<button
+			type="button"
+			onClick={handleChangeColorMode}
+			className="border rounded-full p-2 border-blue-500"
+		>
 			{colorMode ? (
-				<img src={moonImg} alt="Moon" />
+				<img src={moonImg} alt="Moon" className="object-cover w-10" />
 			) : (
-				<img src={sunImg} alt="Sun" />
+				<img src={sunImg} alt="Sun" className="object-cover w-10" />
 			)}
 		</button>
 	);
