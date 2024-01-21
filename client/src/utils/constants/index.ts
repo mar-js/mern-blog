@@ -1,4 +1,6 @@
-export const links = [
+import { InterfaceLinks } from "./interfaces";
+
+export const links: InterfaceLinks[] = [
 	{
 		id: "home",
 		text: "Home",
