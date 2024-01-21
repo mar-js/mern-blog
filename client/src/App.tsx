@@ -1,3 +1,4 @@
+import { Pages } from "@/pages";
 import { FC } from "react";
 
-export const App: FC = () => <h1>Hola</h1>
+export const App: FC = () => <Pages />;
