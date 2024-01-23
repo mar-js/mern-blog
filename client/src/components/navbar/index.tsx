@@ -5,7 +5,9 @@ export const Navbar: FC = () => (
 	<nav className="flex w-full justify-between items-center">
 		<Search />
 		<Links />
-		<SwitchColorMode />
-		<BtnsSign />
+		<div className="flex">
+			<SwitchColorMode />
+			<BtnsSign />
+		</div>
 	</nav>
 );
