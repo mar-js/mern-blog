@@ -6,7 +6,6 @@ export const useDetectMobileView = () => {
 
 	const handleChange = (e: MediaQueryListEvent) => {
 		setDetectMobileView(Boolean(e.matches));
-		console.log("BB", e.matches);
 	};
 
 	useEffect(() => {
