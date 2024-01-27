@@ -8,10 +8,19 @@ export const useDetectMobileView = () => {
 		setDetectMobileView(Boolean(e.matches));
 	};
 
+	const handleLoad = () => {
+		setDetectMobileView(mobileMediaQuery.matches);
+	};
+
 	useEffect(() => {
+		// CHANGES WHEN LOAD PAGE
+		window.addEventListener("load", handleLoad);
+
+		// CHANGES WHEN RESIZE PAGE
 		mobileMediaQuery.addEventListener("change", handleChange);
 
 		return () => {
+			window.removeEventListener("load", handleLoad);
 			mobileMediaQuery.removeEventListener("change", handleChange);
 		};
 	}, [detectMobileView]);
