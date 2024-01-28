@@ -24,3 +24,32 @@ client/*.ntvs*
 client/*.njsproj
 client/*.sln
 client/*.sw?
+
+#######
+
+## api folder
+# Logs
+api/logs
+api/*.log
+api/npm-debug.log*
+api/yarn-debug.log*
+api/yarn-error.log*
+api/pnpm-debug.log*
+api/lerna-debug.log*
+api/bun.lockb
+
+api/node_modules
+api/dist
+api/dist-ssr
+api/*.local
+
+# Editor directories and files
+api/.vscode/*
+api/!.vscode/extensions.json
+api/.idea
+api/.DS_Store
+api/*.suo
+api/*.ntvs*
+api/*.njsproj
+api/*.sln
+api/*.sw?
