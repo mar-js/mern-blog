@@ -1,7 +1,6 @@
 import { Router } from "express";
+import { usersController } from "../../controllers";
 
 export const usersRouter = Router();
 
-usersRouter.get("/users", (req, res) => {
-	res.send("<h2>USERS</h2>");
-});
+usersRouter.get("/users", usersController);
