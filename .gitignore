@@ -25,6 +25,8 @@ client/*.njsproj
 client/*.sln
 client/*.sw?
 
+client/.env
+
 #######
 
 ## api folder
@@ -53,3 +55,5 @@ api/*.ntvs*
 api/*.njsproj
 api/*.sln
 api/*.sw?
+
+api/.env
