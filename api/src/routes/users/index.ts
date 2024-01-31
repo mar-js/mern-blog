@@ -1,7 +1,7 @@
 import { Router } from "express";
 
-export const ROUTER = Router();
+export const usersRouter = Router();
 
-ROUTER.get("/users", (req, res) => {
+usersRouter.get("/users", (req, res) => {
 	res.send("<h2>USERS</h2>");
 });
