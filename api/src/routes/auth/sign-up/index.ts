@@ -1,5 +1,6 @@
 import { Router } from "express";
+import { signUpController } from "../../../controllers";
 
-const signUpRouter = Router();
+export const signUpRouter = Router();
 
-signUpRouter.post("/signup");
+signUpRouter.post("/signup", signUpController);
