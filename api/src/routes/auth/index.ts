@@ -1,8 +1,6 @@
 import { Router } from "express";
-import { signUpRouter } from "./sign-up";
+import { signUpRoute } from "./sign-up";
 
-export { signUpRouter } from "./sign-up";
+export const authRoute = Router();
 
-export const authRouter = Router();
-
-authRouter.use("/auth", signUpRouter);
+authRoute.use("/auth", signUpRoute);

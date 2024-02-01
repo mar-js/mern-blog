@@ -1,2 +1,2 @@
-export { usersRouter } from "./users";
-export { authRouter } from "./auth";
+export { usersRoute } from "./users";
+export { authRoute } from "./auth";
