@@ -1,5 +1,5 @@
 import { hashSync } from "bcrypt";
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 import { UserModel } from "../../../models";
 
 interface InterfaceReqBody {
@@ -8,7 +8,11 @@ interface InterfaceReqBody {
 	password: string;
 }
 
-export const signUpController = async (req: Request, res: Response) => {
+export const signUpController = async (
+	req: Request,
+	res: Response,
+	next: NextFunction,
+) => {
 	if (typeof req.body === "undefined")
 		return res
 			.status(400)
@@ -30,6 +34,6 @@ export const signUpController = async (req: Request, res: Response) => {
 
 		return res.status(200).json({ message: "Signup successful" });
 	} catch (error) {
-		return res.status(500).json({ message: error?.message });
+		next(error);
 	}
 };
