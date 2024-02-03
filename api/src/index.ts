@@ -13,7 +13,13 @@ APP.use("/api", usersRoute);
 
 APP.use("/api", authRoute);
 
-APP.use(errorsMiddleware);
+const errorHandlerMiddleware = (err, req, res, next) => {
+	// Handle the error
+	console.log("Executing error handling middleware");
+	res.status(500).json({ error: "Internal Server Error" });
+};
+
+APP.use(errorHandlerMiddleware);
 
 APP.listen(3000, () => {
 	console.log("run");
