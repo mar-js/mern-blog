@@ -13,7 +13,7 @@ export const signUpController = async (
 	res: Response,
 	next: NextFunction,
 ) => {
-	if (typeof req.body === "undefined")
+	if (!Object.entries(req.body).length)
 		return res
 			.status(400)
 			.json({ message: "You must complete the required information" });
