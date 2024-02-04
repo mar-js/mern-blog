@@ -1,3 +1,4 @@
+import { Section } from "@/layouts";
 import { FC } from "react";
 
-export const AboutPage: FC = () => <section>About Page</section>;
+export const AboutPage: FC = () => <Section>About Page</Section>;
