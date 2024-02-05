@@ -1,3 +1,4 @@
+import { Section } from "@/layouts";
 import { FC } from "react";
 
-export const ProjectsPage: FC = () => <section>Projects Page</section>;
+export const ProjectsPage: FC = () => <Section>Projects Page</Section>;
