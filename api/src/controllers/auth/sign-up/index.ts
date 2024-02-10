@@ -32,7 +32,7 @@ export const signUpController = async (
 	try {
 		await newUser.save();
 
-		return res.status(200).json({ message: "Signup successful" });
+		return res.status(201).json({ message: "Signup successful" });
 	} catch (error) {
 		next(error);
 	}
