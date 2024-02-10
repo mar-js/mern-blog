@@ -1,5 +1,9 @@
 import { FC, PropsWithChildren } from "react";
 
-export const Section: FC<PropsWithChildren> = ({ children }) => (
-	<section>{children}</section>
+interface ISection extends PropsWithChildren {
+	className?: string;
+}
+
+export const Section: FC<ISection> = ({ children, className }) => (
+	<section className={className}>{children}</section>
 );
