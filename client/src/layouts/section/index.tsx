@@ -5,5 +5,5 @@ interface ISection extends PropsWithChildren {
 }
 
 export const Section: FC<ISection> = ({ children, className }) => (
-	<section className={className}>{children}</section>
+	<section className={`${className} mt-10 mb-80`}>{children}</section>
 );
