@@ -1,4 +1,4 @@
-import { Header } from "@/layouts";
+import { Footer, Header } from "@/layouts";
 import { FC } from "react";
 import { Route, Switch } from "wouter";
 import { AboutPage } from "./about";
@@ -21,5 +21,6 @@ export const Pages: FC = () => (
 			<Route path="/sign-in" component={SignInPage} />
 			<Route path="/sign-up" component={SignUpPage} />
 		</Switch>
+		<Footer />
 	</>
 );
