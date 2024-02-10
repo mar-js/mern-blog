@@ -11,7 +11,7 @@ export const BtnsSign: FC = () => (
 		</Link>
 		<Link
 			href="/sign-up"
-			className="ml-4 border-2 rounded-2xl py-2 px-4 hover:opacity-70 max-[1000px]:w-full max-[1000px]:ml-0 max-[1000px]:border-none max-[1000px]:bg-white max-[1000px]:text-blue-500 max-[1000px]:py-4"
+			className="ml-4 border-2 rounded-md py-2 px-4 hover:opacity-70 max-[1000px]:w-full max-[1000px]:ml-0 max-[1000px]:border-none max-[1000px]:bg-white max-[1000px]:text-blue-500 max-[1000px]:py-4"
 		>
 			Sign Up
 		</Link>
