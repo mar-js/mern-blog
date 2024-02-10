@@ -5,3 +5,4 @@ export { BtnsSign } from "./btns-sign";
 export { SwitchColorMode } from "./switch-color-mode";
 export { Title } from "./title";
 export { Menu } from "./menu";
+export { Forms } from "./forms";
