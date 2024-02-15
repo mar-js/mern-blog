@@ -1,7 +1,12 @@
 import { FC, FormEvent } from "react";
-import { SignUp } from "./sign-up";
+import { navigate } from "wouter/use-location";
+import { Access } from "./access";
 
-export const Forms: FC = () => {
+interface IForms {
+	isSignUp?: boolean;
+}
+
+export const Forms: FC<IForms> = ({ isSignUp }) => {
 	const handleSubmit = async (e: FormEvent) => {
 		e.preventDefault();
 
@@ -9,14 +14,19 @@ export const Forms: FC = () => {
 		const DATA = Object.fromEntries(new FormData(TARGET));
 
 		try {
-			const RESPONSE = await fetch("/api/auth/signup", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
+			const RESPONSE = await fetch(
+				`/api/auth/${isSignUp ? "signup" : "signin"}`,
+				{
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify(DATA),
 				},
-				body: JSON.stringify(DATA),
-			});
+			);
 			const RESPONSE_DATA = await RESPONSE.json();
+
+			if (RESPONSE.ok) navigate(isSignUp ? "/sign-in" : "/");
 
 			console.log(RESPONSE_DATA);
 		} catch (error) {
@@ -26,7 +36,7 @@ export const Forms: FC = () => {
 
 	return (
 		<form action="POST" onSubmit={handleSubmit} className="w-[35rem]">
-			<SignUp />
+			<Access isSignUp={isSignUp} />
 		</form>
 	);
 };
