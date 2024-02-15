@@ -50,7 +50,13 @@ export const signInController = async (
 				httpOnly: true,
 			})
 			.json({
-				user: findUser,
+				user: {
+					id: findUser._id,
+					username: findUser.username,
+					email: findUser.email,
+					createdAt: findUser.createdAt,
+					updatedAt: findUser.updatedAt,
+				},
 				message: "Signin successful",
 			});
 	} catch (error) {
