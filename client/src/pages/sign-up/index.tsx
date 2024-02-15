@@ -11,6 +11,6 @@ export const SignUpPage: FC = () => (
 				with Google
 			</p>
 		</div>
-		<Forms />
+		<Forms isSignUp />
 	</Section>
 );
