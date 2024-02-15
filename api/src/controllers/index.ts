@@ -1,2 +1,2 @@
 export { usersController } from "./users";
-export { signUpController } from "./auth";
+export { signUpController, signInController } from "./auth";
