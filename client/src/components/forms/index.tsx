@@ -26,11 +26,14 @@ export const Forms: FC<IForms> = ({ isSignUp }) => {
 			);
 			const RESPONSE_DATA = await RESPONSE.json();
 
+			console.log(RESPONSE_DATA);
+
 			if (RESPONSE.ok) navigate(isSignUp ? "/sign-in" : "/");
 
-			console.log(RESPONSE_DATA);
+			navigate("/error");
 		} catch (error) {
 			console.log("A", error);
+			navigate("/error");
 		}
 	};
 
