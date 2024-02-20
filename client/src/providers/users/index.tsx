@@ -1,8 +1,16 @@
 import { UsersModel } from "@/contexts";
-import { FC, PropsWithChildren } from "react";
+import { userReducer } from "@/helpers";
+import { FC, PropsWithChildren, useReducer } from "react";
 
 export const UsersProvider: FC<PropsWithChildren> = ({ children }) => {
-	const VALUE = {};
+	const initialState = {
+		loading: false,
+		user: null,
+		error: undefined,
+	};
+	const [userState, userDispatch] = useReducer(userReducer, initialState);
+
+	const VALUE = { userState, userDispatch };
 
 	return <UsersModel.Provider value={VALUE}>{children}</UsersModel.Provider>;
 };
