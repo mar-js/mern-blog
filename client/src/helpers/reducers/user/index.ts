@@ -9,6 +9,8 @@ export const userReducer = (state, action) => {
 		return {
 			...state,
 			loading: payload,
+			user: null,
+			error: undefined,
 		};
 
 	if (type === USER_SUCCESS)
@@ -16,12 +18,14 @@ export const userReducer = (state, action) => {
 			...state,
 			loading: false,
 			user: payload,
+			error: undefined,
 		};
 
 	if (type === USER_ERROR)
 		return {
 			...state,
 			loading: false,
+			user: null,
 			error: payload,
 		};
 
