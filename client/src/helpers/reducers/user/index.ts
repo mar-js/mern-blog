@@ -42,7 +42,7 @@ export const userSuccessAction = (user) => ({
 	payload: user,
 });
 
-export const userErrorAction = (error) => ({
+export const userErrorAction = ({ error }) => ({
 	type: USER_ERROR,
 	payload: error,
 });
