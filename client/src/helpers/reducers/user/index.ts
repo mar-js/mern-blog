@@ -9,7 +9,7 @@ export const userReducer = (state, action) => {
 		return {
 			...state,
 			loading: payload,
-			user: null,
+			data: null,
 			error: undefined,
 		};
 
@@ -17,7 +17,7 @@ export const userReducer = (state, action) => {
 		return {
 			...state,
 			loading: false,
-			user: payload,
+			data: payload,
 			error: undefined,
 		};
 
@@ -25,7 +25,7 @@ export const userReducer = (state, action) => {
 		return {
 			...state,
 			loading: false,
-			user: null,
+			data: null,
 			error: payload,
 		};
 
@@ -37,9 +37,9 @@ export const userLoadingAction = () => ({
 	payload: true,
 });
 
-export const userSuccessAction = (user) => ({
+export const userSuccessAction = (data) => ({
 	type: USER_SUCCESS,
-	payload: user,
+	payload: data,
 });
 
 export const userErrorAction = ({ error }) => ({

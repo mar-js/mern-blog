@@ -5,7 +5,7 @@ import { FC, PropsWithChildren, useReducer } from "react";
 export const UsersProvider: FC<PropsWithChildren> = ({ children }) => {
 	const initialState = {
 		loading: false,
-		user: null,
+		data: null,
 		error: undefined,
 	};
 	const [userState, userDispatch] = useReducer(userReducer, initialState);
