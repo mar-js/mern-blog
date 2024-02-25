@@ -13,30 +13,24 @@ export const Forms: FC<IForms> = ({ isSignUp }) => {
 		const TARGET = e.target as HTMLFormElement;
 		const DATA = Object.fromEntries(new FormData(TARGET));
 
-		try {
-			const RESPONSE = await fetch(
-				`/api/auth/${isSignUp ? "signup" : "signin"}`,
-				{
-					method: "POST",
-					headers: {
-						"Content-Type": "application/json",
-					},
-					body: JSON.stringify(DATA),
+		const RESPONSE = await fetch(
+			`/api/auth/${isSignUp ? "signup" : "signin"}`,
+			{
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
 				},
-			);
-			const RESPONSE_DATA = await RESPONSE.json();
+				body: JSON.stringify(DATA),
+			},
+		);
+		const RESPONSE_DATA = await RESPONSE.json();
 
-			console.log(RESPONSE_DATA);
-
-			if (RESPONSE.ok) navigate(isSignUp ? "/sign-in" : "/");
-
-			navigate("/error");
-		} catch (error) {
-			console.log("A", error);
-			navigate("/error");
+		if (RESPONSE.ok) {
+			return navigate(isSignUp ? "/sign-in" : "/");
 		}
-	};
 
+		return navigate("/error");
+	};
 	return (
 		<form action="POST" onSubmit={handleSubmit} className="w-[35rem]">
 			<Access isSignUp={isSignUp} />
