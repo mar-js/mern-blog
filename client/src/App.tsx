@@ -1,9 +1,9 @@
 import { Pages } from "@/pages";
-import { UsersProvider } from "@/providers";
+import { Providers } from "@/providers";
 import { FC } from "react";
 
 export const App: FC = () => (
-	<UsersProvider>
+	<Providers>
 		<Pages />
-	</UsersProvider>
+	</Providers>
 );
