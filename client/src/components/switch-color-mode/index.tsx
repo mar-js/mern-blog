@@ -1,12 +1,15 @@
 import moonImg from "@/assets/moon.png";
 import sunImg from "@/assets/sun.png";
+import { useThemeContext } from "@/contexts";
 import { FC, useState } from "react";
 
 export const SwitchColorMode: FC = () => {
 	const [colorMode, setColorMode] = useState(false);
+	const { handleToggleThemeMode } = useThemeContext();
 
 	const handleChangeColorMode = () => {
 		setColorMode((prev) => !prev);
+		handleToggleThemeMode();
 	};
 
 	return (
