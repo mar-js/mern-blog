@@ -7,3 +7,4 @@ export { Title } from "./title";
 export { Menu } from "./menu";
 export { Forms } from "./forms";
 export { Copyright } from "./copyright";
+export { BtnUser } from "./btn-user";
