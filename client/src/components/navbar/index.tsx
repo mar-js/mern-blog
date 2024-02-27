@@ -24,7 +24,7 @@ export const Navbar: FC = () => {
 			) : (
 				<>
 					<Links />
-					<div className="flex">
+					<div className="flex relative">
 						<SwitchColorMode />
 						{IS_LOGGED ? <BtnUser /> : <BtnsSign />}
 					</div>
