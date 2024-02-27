@@ -1,15 +1,24 @@
 import { ThemeModel } from "@/contexts";
-import { FC, PropsWithChildren, useState } from "react";
+import { FC, PropsWithChildren, useEffect, useState } from "react";
 
 export const ThemeProvider: FC<PropsWithChildren> = ({ children }) => {
-	const [toggleThemeMode, setToggleThemeMode] = useState("light");
+	const [themeMode, setThemeMode] = useState("light");
+	const ROOT = document.getElementById("root");
 
 	const handleToggleThemeMode = () => {
-		setToggleThemeMode((prev) => (prev === "light" ? "dark" : "light"));
+		setThemeMode((prev) => {
+			ROOT?.classList.remove(prev);
+
+			return prev === "light" ? "dark" : "light";
+		});
 	};
 
+	useEffect(() => {
+		ROOT?.classList.add(themeMode);
+	}, [ROOT, themeMode]);
+
 	const VALUE = {
-		toggleThemeMode,
+		themeMode,
 		handleToggleThemeMode,
 	};
 
