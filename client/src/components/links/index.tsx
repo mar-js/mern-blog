@@ -3,7 +3,7 @@ import { FC } from "react";
 import { Link } from "wouter";
 
 export const Links: FC = () => (
-	<ul className="flex justify-center items-center text-gray-500 max-[1000px]:w-full max-[1000px]:inline max-[1000px]:text-4xl max-[1000px]:text-center max-[1000px]:text-white">
+	<ul className="flex justify-center items-center max-[1000px]:w-full max-[1000px]:inline max-[1000px]:text-4xl max-[1000px]:text-center max-[1000px]:text-white">
 		{links.map(({ id, text, link }) => (
 			<li
 				key={id}

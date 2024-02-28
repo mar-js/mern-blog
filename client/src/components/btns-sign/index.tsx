@@ -2,7 +2,7 @@ import { FC } from "react";
 import { Link } from "wouter";
 
 export const BtnsSign: FC = () => (
-	<div className="flex justify-center items-center font-bold text-gray-400 max-[1000px]:flex-col max-[1000px]:mt-10 max-[1000px]:text-4xl max-[1000px]:w-full max-[1000px]:text-center">
+	<div className="flex justify-center items-center font-bold max-[1000px]:flex-col max-[1000px]:mt-10 max-[1000px]:text-4xl max-[1000px]:w-full max-[1000px]:text-center">
 		<Link
 			href="/sign-in"
 			className="ml-4 hover:opacity-70 max-[1000px]:mb-10 max-[1000px]:w-full max-[1000px]:ml-0 max-[1000px]:text-white max-[1000px]:border-2 max-[1000px]:rounded-2xl max-[1000px]:py-4"
