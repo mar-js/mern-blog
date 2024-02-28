@@ -1,11 +1,15 @@
 import menu from "@/assets/menu.svg";
 import { BtnsSign, Links, SwitchColorMode } from "@/components";
+import { useThemeContext } from "@/contexts";
 import { FC, useState } from "react";
 
 let previousUrl = location.href;
 
 export const Menu: FC = () => {
 	const [showMenu, setShowMenu] = useState(false);
+	const {
+		themeMode: { showDarkMode },
+	} = useThemeContext();
 
 	const handleClick = () => {
 		setShowMenu((prev) => !prev);
@@ -30,7 +34,11 @@ export const Menu: FC = () => {
 	return (
 		<>
 			<button type="button" onClick={handleClick} className="w-6">
-				<img src={menu} alt="Menu" className="object-cover w-full" />
+				<img
+					src={menu}
+					alt="Menu"
+					className={`object-cover w-full ${showDarkMode && "invert"}`}
+				/>
 			</button>
 			{showMenu && (
 				<div className="absolute top-0 left-0 w-full h-full bg-blue-500 flex flex-col justify-start items-center py-40  px-10">
