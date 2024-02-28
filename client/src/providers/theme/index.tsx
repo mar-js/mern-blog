@@ -3,19 +3,19 @@ import { FC, PropsWithChildren, useEffect, useState } from "react";
 
 export const ThemeProvider: FC<PropsWithChildren> = ({ children }) => {
 	const [themeMode, setThemeMode] = useState("light");
-	const ROOT = document.getElementById("root");
+	const BODY = document.body;
 
 	const handleToggleThemeMode = () => {
 		setThemeMode((prev) => {
-			ROOT?.classList.remove(prev);
+			BODY?.classList.remove(prev);
 
 			return prev === "light" ? "dark" : "light";
 		});
 	};
 
 	useEffect(() => {
-		ROOT?.classList.add(themeMode);
-	}, [ROOT, themeMode]);
+		BODY?.classList.add(themeMode);
+	}, [BODY, themeMode]);
 
 	const VALUE = {
 		themeMode,
