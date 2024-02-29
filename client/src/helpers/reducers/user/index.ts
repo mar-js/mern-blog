@@ -46,23 +46,3 @@ export const userErrorAction = ({ error }) => ({
 	type: USER_ERROR,
 	payload: error,
 });
-
-/*
-export const signInParse = (initialState) => {
-	const user = localStorage.getItem("user");
-
-	if (user) {
-		return parseJson(user);
-	}
-
-	return initialState;
-};
-
-function parseJson(json) {
-	try {
-		return JSON.parse(json);
-	} catch (error) {
-		console.log(error);
-	}
-}
-*/
