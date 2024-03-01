@@ -7,12 +7,11 @@ export const UsersProvider: FC<PropsWithChildren> = ({ children }) => {
 		loading: false,
 		data: null,
 		error: undefined,
+		isLogged: false,
 	};
 	const [userState, userDispatch] = useReducer(userReducer, initialState);
 
-	const IS_LOGGED = Boolean(userState.data?.user);
-
-	const VALUE = { userState, userDispatch, isLogged: IS_LOGGED };
+	const VALUE = { userState, userDispatch };
 
 	return <UsersModel.Provider value={VALUE}>{children}</UsersModel.Provider>;
 };
