@@ -8,3 +8,4 @@ export { Menu } from "./menu";
 export { Forms } from "./forms";
 export { Copyright } from "./copyright";
 export { BtnUser } from "./btn-user";
+export { Profile } from "./profile";
