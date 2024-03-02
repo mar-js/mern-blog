@@ -3,7 +3,7 @@ import { Section } from "@/layouts";
 import { FC } from "react";
 
 export const SignInPage: FC = () => (
-	<Section className="flex flex-wrap h-[30rem] items-center justify-evenly">
+	<Section className="flex flex-wrap h-[30rem] items-start justify-evenly">
 		<div className="flex flex-col">
 			<Title />
 			<p className="text-sm italic mt-4">
@@ -11,6 +11,6 @@ export const SignInPage: FC = () => (
 				with Google
 			</p>
 		</div>
-		<Forms />
+		<Forms access="signin" />
 	</Section>
 );
