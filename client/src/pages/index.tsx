@@ -18,8 +18,8 @@ export const Pages: FC = () => (
 			<Route path="*" component={ErrorPage} />
 			<Route path="/" component={HomePage} />
 			<Route path="/projects" component={ProjectsPage} />
-			<Route path="/sign-in" component={SignInPage} />
-			<Route path="/sign-up" component={SignUpPage} />
+			<Route path="/signin" component={SignInPage} />
+			<Route path="/signup" component={SignUpPage} />
 		</Switch>
 		<Footer />
 	</>
