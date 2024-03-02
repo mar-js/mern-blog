@@ -1,3 +1,4 @@
+import { Profile } from "@/components";
 import { useUsersContext } from "@/contexts";
 import { Section } from "@/layouts";
 import { FC } from "react";
@@ -8,5 +9,9 @@ export const DashboardPage: FC = () => {
 
 	if (!userState.isLogged) navigate("/");
 
-	return <Section>Dashboard Page</Section>;
+	return (
+		<Section className="flex justify-center items-start">
+			<Profile />
+		</Section>
+	);
 };
