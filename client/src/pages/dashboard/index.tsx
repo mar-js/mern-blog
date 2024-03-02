@@ -1,4 +1,4 @@
-import { Profile } from "@/components";
+import { Forms } from "@/components";
 import { useUsersContext } from "@/contexts";
 import { Section } from "@/layouts";
 import { FC } from "react";
@@ -11,7 +11,7 @@ export const DashboardPage: FC = () => {
 
 	return (
 		<Section className="flex justify-center items-start">
-			<Profile />
+			<Forms access="update" />
 		</Section>
 	);
 };
