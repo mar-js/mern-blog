@@ -17,8 +17,6 @@ export const ThemeProvider: FC<PropsWithChildren> = ({ children }) => {
 	);
 	const BODY = document.body;
 
-	console.log("AA", themeMode);
-
 	const handleToggleThemeMode = () => {
 		BODY?.classList.remove(themeMode.colorMode);
 
