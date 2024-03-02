@@ -3,7 +3,7 @@ import { Section } from "@/layouts";
 import { FC } from "react";
 
 export const SignInPage: FC = () => (
-	<Section className="flex flex-wrap px-10 h-[30rem] items-center justify-evenly">
+	<Section className="flex flex-wrap h-[30rem] items-center justify-evenly">
 		<div className="flex flex-col">
 			<Title />
 			<p className="text-sm italic mt-4">
