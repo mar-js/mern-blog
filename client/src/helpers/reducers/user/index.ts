@@ -11,6 +11,7 @@ export const userReducer = (state, action) => {
 			loading: payload,
 			data: null,
 			error: undefined,
+			isLogged: false,
 		};
 
 	if (type === USER_SUCCESS)
@@ -19,6 +20,7 @@ export const userReducer = (state, action) => {
 			loading: false,
 			data: payload,
 			error: undefined,
+			isLogged: true,
 		};
 
 	if (type === USER_ERROR)
@@ -27,6 +29,7 @@ export const userReducer = (state, action) => {
 			loading: false,
 			data: null,
 			error: payload,
+			isLogged: false,
 		};
 
 	return { ...state };
