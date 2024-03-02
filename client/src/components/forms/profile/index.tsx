@@ -2,7 +2,7 @@ import { FC } from "react";
 
 export const Profile: FC = () => {
 	return (
-		<div className="w-3/4 max-[1000px]:w-full flex justify-center items-center flex-col">
+		<div className="w-full flex justify-center items-center flex-col">
 			<h3 className="text-3xl mb-10">Profile</h3>
 			<div className="flex flex-col w-full mb-10">
 				<input
