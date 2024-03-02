@@ -12,7 +12,7 @@ import { FC } from "react";
 
 export const Navbar: FC = () => {
 	const { detectMobileView } = useDetectMobileView();
-	const { isLogged } = useUsersContext();
+	const { userState } = useUsersContext();
 
 	return (
 		<nav className="flex w-full justify-between items-center">
@@ -24,7 +24,7 @@ export const Navbar: FC = () => {
 					<Links />
 					<div className="flex relative">
 						<SwitchColorMode />
-						{isLogged ? <BtnUser /> : <BtnsSign />}
+						{userState.isLogged ? <BtnUser /> : <BtnsSign />}
 					</div>
 				</>
 			)}
