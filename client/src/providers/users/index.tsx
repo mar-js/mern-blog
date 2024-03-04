@@ -17,6 +17,35 @@ export const UsersProvider: FC<PropsWithChildren> = ({ children }) => {
 	};
 	const [userState, userDispatch] = useReducer(userReducer, initialState);
 
+	const handleSubmit = async (e: FormEvent, access) => {
+		e.preventDefault();
+
+		const TARGET = e.target as HTMLFormElement;
+		const DATA = Object.fromEntries(new FormData(TARGET));
+
+		userDispatch(userLoadingAction());
+
+		const RESPONSE = await fetch(`/api/auth/${access}`, {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(DATA),
+		});
+
+		const RESPONSE_DATA = await RESPONSE.json();
+
+		if (RESPONSE.ok) {
+			userDispatch(userSuccessAction(RESPONSE_DATA));
+
+			return navigate(access === "signup" ? "/signin" : "/");
+		}
+
+		userDispatch(userErrorAction(RESPONSE_DATA));
+
+		return navigate("/error");
+	};
+
 	useLayoutEffect(() => {
 		const user = localStorage.getItem("user");
 
@@ -38,7 +67,7 @@ export const UsersProvider: FC<PropsWithChildren> = ({ children }) => {
 		}
 	}, [userState.isLogged, userState.data]);
 
-	const VALUE = { userState, userDispatch };
+	const VALUE = { userState, userDispatch, handleSubmit };
 
 	return <UsersModel.Provider value={VALUE}>{children}</UsersModel.Provider>;
 };
