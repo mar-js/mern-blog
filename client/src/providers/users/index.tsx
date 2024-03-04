@@ -1,12 +1,7 @@
 import { UsersModel } from "@/contexts";
 import { userReducer, userSuccessAction } from "@/helpers";
-import {
-	FC,
-	PropsWithChildren,
-	useEffect,
-	useLayoutEffect,
-	useReducer,
-} from "react";
+import type { FC, FormEvent, PropsWithChildren } from "react";
+import { useEffect, useLayoutEffect, useReducer } from "react";
 
 export const UsersProvider: FC<PropsWithChildren> = ({ children }) => {
 	const initialState = {
