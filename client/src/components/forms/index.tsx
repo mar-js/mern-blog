@@ -1,55 +1,24 @@
 import { useUsersContext } from "@/contexts";
-import {
-	userErrorAction,
-	userLoadingAction,
-	userSuccessAction,
-} from "@/helpers";
-import { FC, FormEvent } from "react";
-import { navigate } from "wouter/use-location";
+import type { FC } from "react";
 import { Access } from "./access";
+import { Profile } from "./profile";
 
 interface IForms {
-	isSignUp?: boolean;
+	access: "signin" | "signup" | "update";
 }
 
-export const Forms: FC<IForms> = ({ isSignUp }) => {
-	const { userDispatch } = useUsersContext();
-
-	const handleSubmit = async (e: FormEvent) => {
-		e.preventDefault();
-
-		const TARGET = e.target as HTMLFormElement;
-		const DATA = Object.fromEntries(new FormData(TARGET));
-
-		userDispatch(userLoadingAction());
-
-		const RESPONSE = await fetch(
-			`/api/auth/${isSignUp ? "signup" : "signin"}`,
-			{
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify(DATA),
-			},
-		);
-
-		const RESPONSE_DATA = await RESPONSE.json();
-
-		if (RESPONSE.ok) {
-			userDispatch(userSuccessAction(RESPONSE_DATA));
-
-			return navigate(isSignUp ? "/sign-in" : "/");
-		}
-
-		userDispatch(userErrorAction(RESPONSE_DATA));
-
-		return navigate("/error");
-	};
+export const Forms: FC<IForms> = ({ access }) => {
+	const { handleSubmit } = useUsersContext();
 
 	return (
-		<form action="POST" onSubmit={handleSubmit} className="w-[35rem]">
-			<Access isSignUp={isSignUp} />
+		<form
+			action="POST"
+			onSubmit={(e) => handleSubmit(e, access)}
+			className={
+				access === "update" ? "w-3/4 max-[1000px]:w-full" : "w-[35rem]"
+			}
+		>
+			{access === "update" ? <Profile /> : <Access action={access} />}
 		</form>
 	);
 };
