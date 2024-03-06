@@ -2,12 +2,12 @@ import { FC } from "react";
 import { Link } from "wouter";
 
 interface IAccess {
-	isSignUp?: boolean;
+	action: "signin" | "signup";
 }
 
-export const Access: FC<IAccess> = ({ isSignUp }) => (
+export const Access: FC<IAccess> = ({ action }) => (
 	<>
-		{isSignUp && (
+		{action === "signup" && (
 			<div className="flex flex-col mb-5">
 				<label htmlFor="username">Your username</label>
 				<input
@@ -43,15 +43,15 @@ export const Access: FC<IAccess> = ({ isSignUp }) => (
 			className="w-full rounded-md bg-blue-500 text-white py-3 mb-2 hover:opacity-70"
 			type="submit"
 		>
-			{isSignUp ? "Sign Up" : "Sign In"}
+			{action === "signup" ? "Sign Up" : "Sign In"}
 		</button>
 		<p className="font-bold text-md">
-			{isSignUp ? "Have an account?" : "Dont have an account"}
+			{action === "signup" ? "Have an account?" : "Dont have an account"}
 			<Link
-				href={!isSignUp ? "/sign-up" : "/sign-in"}
+				href={action !== "signup" ? "/signup" : "/signin"}
 				className="text-blue-500 ml-2"
 			>
-				{!isSignUp ? "Sign Up" : "Sign In"}
+				{action !== "signup" ? "Sign Up" : "Sign In"}
 			</Link>
 		</p>
 	</>
