@@ -16,6 +16,7 @@ export const Access: FC<IAccess> = ({ action }) => (
 					name="username"
 					id="username"
 					placeholder="Joe Doe"
+					required
 				/>
 			</div>
 		)}
@@ -27,6 +28,7 @@ export const Access: FC<IAccess> = ({ action }) => (
 				name="email"
 				id="email"
 				placeholder="joedoe@gmail.com"
+				required
 			/>
 		</div>
 		<div className="flex flex-col mb-5">
@@ -37,6 +39,7 @@ export const Access: FC<IAccess> = ({ action }) => (
 				name="password"
 				id="password"
 				placeholder="**********"
+				required
 			/>
 		</div>
 		<button
