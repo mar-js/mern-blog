@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { usersController } from "../../controllers";
+import { userUpdateRoute } from "./update";
 
 export const usersRoute = Router();
 
-usersRoute.get("/users", usersController);
+usersRoute.use("/users", userUpdateRoute);
