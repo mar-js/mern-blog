@@ -11,6 +11,7 @@ export const Profile: FC = () => {
 					type="text"
 					name=""
 					id=""
+					required
 				/>
 				<input
 					className="mb-6 outline outline-1 outline-gray-300 focus-within:shadow-md focus-within:shadow-gray-400 focus-within:outline-none p-2"
@@ -18,6 +19,7 @@ export const Profile: FC = () => {
 					type="text"
 					name=""
 					id=""
+					required
 				/>
 				<input
 					className="mb-6 outline outline-1 outline-gray-300 focus-within:shadow-md focus-within:shadow-gray-400 focus-within:outline-none p-2"
@@ -25,6 +27,7 @@ export const Profile: FC = () => {
 					type="text"
 					name=""
 					id=""
+					required
 				/>
 				<button
 					className="border p-2 hover:opacity-70 hover:border-blue-500"
