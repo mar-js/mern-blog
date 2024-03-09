@@ -1,6 +1,7 @@
 import { hashSync } from "bcrypt";
-import { NextFunction, Request, Response } from "express";
+import type { NextFunction, Request, Response } from "express";
 import { UserModel } from "../../../models";
+import { errorsHandler } from "../../../utils";
 
 interface InterfaceReqBody {
 	username: string;
@@ -14,14 +15,22 @@ export const signUpController = async (
 	next: NextFunction,
 ) => {
 	if (!Object.entries(req.body).length)
-		return res
-			.status(400)
-			.json({ message: "You must complete the required information" });
+		return next(
+			errorsHandler({
+				statusCode: 400,
+				message: "You must complete the required information",
+			}),
+		);
 
 	const { email, password, username } = req.body as InterfaceReqBody;
 
 	if (!email?.length || !password?.length || !username?.length)
-		return res.status(400).json({ message: "All fields are required" });
+		return next(
+			errorsHandler({
+				statusCode: 400,
+				message: "All fields are required",
+			}),
+		);
 
 	const newUser = new UserModel({
 		email,
