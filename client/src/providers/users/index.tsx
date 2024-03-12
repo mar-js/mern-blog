@@ -1,4 +1,5 @@
 import { UsersModel } from "@/contexts";
+import type { IUsersModel } from "@/contexts/users/interface";
 import {
 	userErrorAction,
 	userLoadingAction,
@@ -68,7 +69,7 @@ export const UsersProvider: FC<PropsWithChildren> = ({ children }) => {
 		}
 	}, [userState.isLogged, userState.data]);
 
-	const VALUE = { userState, userDispatch, handleSubmit };
+	const VALUE: IUsersModel = { userState, userDispatch, handleSubmit };
 
 	return <UsersModel.Provider value={VALUE}>{children}</UsersModel.Provider>;
 };
