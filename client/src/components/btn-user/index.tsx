@@ -1,6 +1,6 @@
 import user from "@/assets/user.svg";
 import { useUsersContext } from "@/contexts";
-import { FC, useState } from "react";
+import { type FC, useState } from "react";
 import { Link } from "wouter";
 
 export const BtnUser: FC = () => {
@@ -8,7 +8,7 @@ export const BtnUser: FC = () => {
 	const {
 		userState: { data },
 	} = useUsersContext();
-	const { username, email } = data.user;
+	const { username, email } = data?.user || {};
 
 	const handleClick = () => {
 		setShowDropdown((prev) => !prev);

@@ -1,9 +1,11 @@
 import { useUsersContext } from "@/contexts";
-import { FC } from "react";
+import type { FC } from "react";
 
 export const Profile: FC = () => {
-	const { userState } = useUsersContext();
-	const { username, email } = userState?.data?.user;
+	const {
+		userState: { data },
+	} = useUsersContext();
+	const { username, email } = data?.user || {};
 
 	return (
 		<div className="w-full flex justify-center items-center flex-col">
