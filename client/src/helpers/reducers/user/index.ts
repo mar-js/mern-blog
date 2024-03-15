@@ -1,8 +1,10 @@
+import type { IAction, IData, IUserState } from "@/contexts/users/interface";
+
 const USER_LOADING = "USER_LOADING";
 const USER_SUCCESS = "USER_SUCCESS";
 const USER_ERROR = "USER_ERROR";
 
-export const userReducer = (state, action) => {
+export const userReducer = (state: IUserState, action: IAction) => {
 	const { type, payload } = action;
 
 	if (type === USER_LOADING)
@@ -40,12 +42,12 @@ export const userLoadingAction = () => ({
 	payload: true,
 });
 
-export const userSuccessAction = (data) => ({
+export const userSuccessAction = (data: IData) => ({
 	type: USER_SUCCESS,
 	payload: data,
 });
 
-export const userErrorAction = ({ error }) => ({
+export const userErrorAction = ({ error }: { error: string }) => ({
 	type: USER_ERROR,
 	payload: error,
 });

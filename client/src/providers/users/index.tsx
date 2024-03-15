@@ -1,5 +1,5 @@
 import { UsersModel } from "@/contexts";
-import type { IUsersModel } from "@/contexts/users/interface";
+import type { IUserState, IUsersModel } from "@/contexts/users/interface";
 import {
 	userErrorAction,
 	userLoadingAction,
@@ -11,7 +11,7 @@ import { useEffect, useLayoutEffect, useReducer } from "react";
 import { navigate } from "wouter/use-location";
 
 export const UsersProvider: FC<PropsWithChildren> = ({ children }) => {
-	const initialState = {
+	const initialState: IUserState = {
 		loading: false,
 		data: null,
 		error: undefined,
@@ -19,7 +19,7 @@ export const UsersProvider: FC<PropsWithChildren> = ({ children }) => {
 	};
 	const [userState, userDispatch] = useReducer(userReducer, initialState);
 
-	const handleSubmit = async (e: FormEvent, access) => {
+	const handleSubmit = async (e: FormEvent, access: string) => {
 		e.preventDefault();
 
 		const TARGET = e.target as HTMLFormElement;
