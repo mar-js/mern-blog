@@ -7,7 +7,7 @@ import {
 	userSuccessAction,
 } from "@/helpers";
 import type { FC, FormEvent, PropsWithChildren } from "react";
-import { useEffect, useLayoutEffect, useReducer } from "react";
+import { useEffect, useReducer } from "react";
 import { navigate } from "wouter/use-location";
 
 export const UsersProvider: FC<PropsWithChildren> = ({ children }) => {
@@ -18,56 +18,63 @@ export const UsersProvider: FC<PropsWithChildren> = ({ children }) => {
 		isLogged: false,
 	};
 	const [userState, userDispatch] = useReducer(userReducer, initialState);
+	const USER_STORAGE = localStorage.getItem("user");
+	const USER = USER_STORAGE && JSON.parse(USER_STORAGE);
+	const ID = USER?.id || userState.data?.id || "";
 
 	const handleSubmit = async (e: FormEvent, access: string) => {
 		e.preventDefault();
 
 		const TARGET = e.target as HTMLFormElement;
-		const DATA = Object.fromEntries(new FormData(TARGET));
+		const GET_DATA = Object.fromEntries(new FormData(TARGET));
+		const DATA =
+			access === "update"
+				? Object.fromEntries(
+						Object.entries(GET_DATA).filter(([_, v]) => v !== ""),
+					)
+				: GET_DATA;
+		const ENDPOINT =
+			ID && access === "update" ? `users/update/${ID}` : `auth/${access}`;
 
 		userDispatch(userLoadingAction());
 
-		const RESPONSE = await fetch(`/api/auth/${access}`, {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify(DATA),
-		});
+		try {
+			const RESPONSE = await fetch(`/api/${ENDPOINT}`, {
+				method: access === "update" ? "PUT" : "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(DATA),
+			});
 
-		const RESPONSE_DATA = await RESPONSE.json();
+			const { user } = await RESPONSE.json();
 
-		if (RESPONSE.ok) {
-			userDispatch(userSuccessAction(RESPONSE_DATA));
+			if (RESPONSE.ok) {
+				userDispatch(
+					userSuccessAction({
+						...user,
+						id: user?._id || user?.id,
+					}),
+				);
 
-			return navigate(access === "signup" ? "/signin" : "/");
+				return navigate(access === "signup" ? "/signin" : "/");
+			}
+
+			throw "ERROR CLIENT";
+		} catch (error) {
+			userDispatch(userErrorAction({ error: error as string }));
+			userDispatch(userSuccessAction(null));
+
+			return navigate("/error");
 		}
-
-		userDispatch(userErrorAction(RESPONSE_DATA));
-
-		return navigate("/error");
 	};
 
-	useLayoutEffect(() => {
-		const user = localStorage.getItem("user");
-
-		if (user) {
-			const USER = JSON.parse(user);
-
-			userDispatch(userSuccessAction(USER));
-		}
+	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+	useEffect(() => {
+		if (USER) userDispatch(userSuccessAction(USER));
 	}, []);
 
-	useEffect(() => {
-		if (userState.isLogged) {
-			const { username, email } = userState.data.user;
-
-			localStorage.setItem(
-				"user",
-				JSON.stringify({ user: { username, email } }),
-			);
-		}
-	}, [userState.isLogged, userState.data]);
+	console.log("AAA userState ", userState);
 
 	const VALUE: IUsersModel = { userState, userDispatch, handleSubmit };
 

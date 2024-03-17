@@ -1,4 +1,4 @@
-import type { IAction, IData, IUserState } from "@/contexts/users/interface";
+import type { IAction, IUser, IUserState } from "@/contexts/users/interface";
 
 const USER_LOADING = "USER_LOADING";
 const USER_SUCCESS = "USER_SUCCESS";
@@ -16,7 +16,13 @@ export const userReducer = (state: IUserState, action: IAction) => {
 			isLogged: false,
 		};
 
-	if (type === USER_SUCCESS)
+	if (type === USER_SUCCESS) {
+		if (payload) {
+			localStorage.setItem("user", JSON.stringify(payload));
+		} else {
+			localStorage.removeItem("user");
+		}
+
 		return {
 			...state,
 			loading: false,
@@ -24,6 +30,7 @@ export const userReducer = (state: IUserState, action: IAction) => {
 			error: undefined,
 			isLogged: true,
 		};
+	}
 
 	if (type === USER_ERROR)
 		return {
@@ -42,7 +49,7 @@ export const userLoadingAction = () => ({
 	payload: true,
 });
 
-export const userSuccessAction = (data: IData) => ({
+export const userSuccessAction = (data: IUser | null) => ({
 	type: USER_SUCCESS,
 	payload: data,
 });

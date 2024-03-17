@@ -5,7 +5,7 @@ export const Profile: FC = () => {
 	const {
 		userState: { data },
 	} = useUsersContext();
-	const { username, email } = data?.user || {};
+	const { username, email } = data || {};
 
 	return (
 		<div className="w-full flex justify-center items-center flex-col">

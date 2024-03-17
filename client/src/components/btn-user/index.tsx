@@ -8,7 +8,7 @@ export const BtnUser: FC = () => {
 	const {
 		userState: { data },
 	} = useUsersContext();
-	const { username, email } = data?.user || {};
+	const { username, email } = data || {};
 
 	const handleClick = () => {
 		setShowDropdown((prev) => !prev);

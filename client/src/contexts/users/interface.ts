@@ -1,19 +1,16 @@
 import type { Dispatch, FormEvent } from "react";
 
-export interface IData {
-	user: {
-		id: string;
-		username: string;
-		email: string;
-		createdAt: string;
-		updatedAt: string;
-	};
-	message: string;
+export interface IUser {
+	id: string;
+	username: string;
+	email: string;
+	createdAt: string;
+	updatedAt: string;
 }
 
 export interface IUserState {
 	loading: boolean;
-	data: IData | null;
+	data: IUser | null;
 	error: undefined | string;
 	isLogged: boolean;
 }
