@@ -89,7 +89,7 @@ export const userUpdateController = async (
 		const { _id, username, email, createdAt, updatedAt } = updatedUser._doc;
 
 		return res.status(201).json({
-			user: { _id, username, email, createdAt, updatedAt },
+			user: { id: _id, username, email, createdAt, updatedAt },
 			message: "Update successful",
 		});
 	} catch (error) {

@@ -50,12 +50,7 @@ export const UsersProvider: FC<PropsWithChildren> = ({ children }) => {
 			const { user } = await RESPONSE.json();
 
 			if (RESPONSE.ok) {
-				userDispatch(
-					userSuccessAction({
-						...user,
-						id: user?._id || user?.id,
-					}),
-				);
+				userDispatch(userSuccessAction({ ...user }));
 
 				return navigate(access === "signup" ? "/signin" : "/");
 			}
