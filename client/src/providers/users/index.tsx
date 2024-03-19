@@ -69,8 +69,6 @@ export const UsersProvider: FC<PropsWithChildren> = ({ children }) => {
 		if (USER) userDispatch(userSuccessAction(USER));
 	}, []);
 
-	console.log("AAA userState ", userState);
-
 	const VALUE: IUsersModel = { userState, userDispatch, handleSubmit };
 
 	return <UsersModel.Provider value={VALUE}>{children}</UsersModel.Provider>;
