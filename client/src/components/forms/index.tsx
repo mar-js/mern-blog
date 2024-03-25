@@ -3,10 +3,6 @@ import type { FC } from "react";
 import { Access } from "./access";
 import { Profile } from "./profile";
 
-interface IForms {
-	access: "signin" | "signup" | "update";
-}
-
 export const Forms: FC<IForms> = ({ access }) => {
 	const { handleSubmit } = useUsersContext();
 

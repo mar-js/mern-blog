@@ -1,5 +1,3 @@
-import { InterfaceLinks } from "./interfaces";
-
 export const links: InterfaceLinks[] = [
 	{
 		id: "home",

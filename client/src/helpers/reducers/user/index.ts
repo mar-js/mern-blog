@@ -1,5 +1,3 @@
-import type { IAction, IUser, IUserState } from "@/contexts/users/interface";
-
 const USER_LOADING = "USER_LOADING";
 const USER_SUCCESS = "USER_SUCCESS";
 const USER_ERROR = "USER_ERROR";

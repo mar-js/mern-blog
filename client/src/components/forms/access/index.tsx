@@ -1,10 +1,6 @@
 import { FC } from "react";
 import { Link } from "wouter";
 
-interface IAccess {
-	action: "signin" | "signup";
-}
-
 export const Access: FC<IAccess> = ({ action }) => (
 	<>
 		{action === "signup" && (
