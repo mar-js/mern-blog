@@ -47,7 +47,7 @@ export const userLoadingAction = () => ({
 	payload: true,
 });
 
-export const userSuccessAction = (data: IUser | null) => ({
+export const userSuccessAction = (data: Partial<IUser>) => ({
 	type: USER_SUCCESS,
 	payload: data,
 });
