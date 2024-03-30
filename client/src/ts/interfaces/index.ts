@@ -18,7 +18,7 @@ export interface IUserState {
 
 export interface IAction {
 	type: string;
-	payload: any;
+	payload: Partial<IUser | boolean | { error: string }>;
 }
 
 export interface IHandleSubmitUser {
