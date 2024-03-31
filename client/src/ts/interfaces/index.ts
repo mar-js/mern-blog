@@ -1,5 +1,5 @@
 import type { Dispatch, FormEvent, PropsWithChildren } from "react";
-import type { Access } from "../types";
+import type { Access, ColorMode } from "../types";
 
 export interface IUser {
 	id: string;
@@ -9,7 +9,7 @@ export interface IUser {
 	updatedAt: string;
 }
 
-export interface IUserState {
+export interface IInitialUserState {
 	loading: boolean;
 	data: Partial<IUser>;
 	error: undefined | string;
@@ -29,7 +29,7 @@ export interface IHandleSubmitUser {
 }
 
 export interface IUsersModel {
-	userState: IUserState;
+	userState: IInitialUserState;
 	userDispatch: Dispatch<IAction>;
 	handleSubmitUser: ({
 		access,
@@ -47,4 +47,14 @@ export interface ILinks {
 	id: string;
 	text: string;
 	link: string;
+}
+
+export interface IInitialStateThemeMode {
+	showDarkMode: boolean;
+	colorMode: ColorMode;
+}
+
+export interface IThemeModeModel {
+	themeMode: IInitialStateThemeMode;
+	handleToggleThemeMode: () => void;
 }
