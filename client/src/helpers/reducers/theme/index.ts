@@ -1,7 +1,13 @@
+import { IAction, IInitialStateThemeMode } from "@/ts/interfaces";
+import { ColorMode } from "@/ts/types";
+
 const THEME_MODE_CHANGE = "THEME_MODE_CHANGE";
 const THEME_MODE_CHANGE_ICON = "THEME_MODE_CHANGE_ICON";
 
-export const themeModeReducer = (state, action) => {
+export const themeModeReducer = (
+	state: IInitialStateThemeMode,
+	action: IAction,
+) => {
 	const { type, payload } = action;
 
 	if (type === THEME_MODE_CHANGE_ICON)
@@ -19,12 +25,12 @@ export const themeModeReducer = (state, action) => {
 	return { ...state };
 };
 
-export const themeModeChangeIconAction = (theme) => ({
+export const themeModeChangeIconAction = (theme: boolean) => ({
 	type: THEME_MODE_CHANGE_ICON,
 	payload: theme,
 });
 
-export const themeModeChangeAction = (theme) => ({
+export const themeModeChangeAction = (theme: ColorMode) => ({
 	type: THEME_MODE_CHANGE,
 	payload: theme,
 });

@@ -1,8 +1,10 @@
+import { IAction, IInitialUserState } from "@/ts/interfaces";
+
 const USER_LOADING = "USER_LOADING";
 const USER_SUCCESS = "USER_SUCCESS";
 const USER_ERROR = "USER_ERROR";
 
-export const userReducer = (state: IUserState, action: IAction) => {
+export const userReducer = (state: IInitialUserState, action: IAction) => {
 	const { type, payload } = action;
 
 	if (type === USER_LOADING)
