@@ -1,9 +1,10 @@
 import { useUsersContext } from "@/contexts";
+import { IAccess } from "@/ts/interfaces";
 import type { FC } from "react";
 import { Access } from "./access";
 import { Profile } from "./profile";
 
-export const Forms: FC<IForms> = ({ access }) => {
+export const Forms: FC<IAccess> = ({ access }) => {
 	const { handleSubmit } = useUsersContext();
 
 	return (
@@ -14,7 +15,7 @@ export const Forms: FC<IForms> = ({ access }) => {
 				access === "update" ? "w-3/4 max-[1000px]:w-full" : "w-[35rem]"
 			}
 		>
-			{access === "update" ? <Profile /> : <Access action={access} />}
+			{access === "update" ? <Profile /> : <Access access={access} />}
 		</form>
 	);
 };

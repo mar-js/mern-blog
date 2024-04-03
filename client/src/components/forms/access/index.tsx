@@ -1,9 +1,10 @@
+import { IAccess } from "@/ts/interfaces";
 import { FC } from "react";
 import { Link } from "wouter";
 
-export const Access: FC<IAccess> = ({ action }) => (
+export const Access: FC<IAccess> = ({ access }) => (
 	<>
-		{action === "signup" && (
+		{access === "signup" && (
 			<div className="flex flex-col mb-5">
 				<label htmlFor="username">Your username</label>
 				<input
@@ -42,15 +43,15 @@ export const Access: FC<IAccess> = ({ action }) => (
 			className="w-full rounded-md bg-blue-500 text-white py-3 mb-2 hover:opacity-70"
 			type="submit"
 		>
-			{action === "signup" ? "Sign Up" : "Sign In"}
+			{access === "signup" ? "Sign Up" : "Sign In"}
 		</button>
 		<p className="font-bold text-md">
-			{action === "signup" ? "Have an account?" : "Dont have an account"}
+			{access === "signup" ? "Have an account?" : "Dont have an account"}
 			<Link
-				href={action !== "signup" ? "/signup" : "/signin"}
+				href={access !== "signup" ? "/signup" : "/signin"}
 				className="text-blue-500 ml-2"
 			>
-				{action !== "signup" ? "Sign Up" : "Sign In"}
+				{access !== "signup" ? "Sign Up" : "Sign In"}
 			</Link>
 		</p>
 	</>
