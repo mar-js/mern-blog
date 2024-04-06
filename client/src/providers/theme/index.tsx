@@ -4,10 +4,11 @@ import {
 	themeModeChangeIconAction,
 	themeModeReducer,
 } from "@/helpers";
+import { IInitialStateThemeMode, IThemeModeModel } from "@/ts/interfaces";
 import { FC, PropsWithChildren, useEffect, useReducer } from "react";
 
 export const ThemeProvider: FC<PropsWithChildren> = ({ children }) => {
-	const initialState = {
+	const initialState: IInitialStateThemeMode = {
 		showDarkMode: false,
 		colorMode: "light",
 	};
@@ -30,7 +31,7 @@ export const ThemeProvider: FC<PropsWithChildren> = ({ children }) => {
 		BODY?.classList.add(themeMode.colorMode);
 	}, [BODY, themeMode.colorMode]);
 
-	const VALUE = {
+	const VALUE: IThemeModeModel = {
 		themeMode,
 		handleToggleThemeMode,
 	};

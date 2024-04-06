@@ -1,10 +1,11 @@
 import { UsersModel } from "@/contexts";
 import { handleSubmitUser, userReducer, userSuccessAction } from "@/helpers";
+import { IInitialUserState, IUsersModel } from "@/ts/interfaces";
 import type { FC, PropsWithChildren } from "react";
 import { useCallback, useEffect, useReducer } from "react";
 
 export const UsersProvider: FC<PropsWithChildren> = ({ children }) => {
-	const initialState: IUserState = {
+	const initialState: IInitialUserState = {
 		loading: false,
 		data: null,
 		error: undefined,
