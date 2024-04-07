@@ -18,7 +18,7 @@ export interface IInitialUserState {
 
 export interface IAction {
 	type: string;
-	payload: Partial<IUser | boolean | { error: string }>;
+	payload: Partial<IUser | boolean | { error: string } | boolean | ColorMode>;
 }
 
 export interface IHandleSubmitUser {
@@ -57,4 +57,8 @@ export interface IInitialStateThemeMode {
 export interface IThemeModeModel {
 	themeMode: IInitialStateThemeMode;
 	handleToggleThemeMode: () => void;
+}
+
+export interface IAccess {
+	access: Access;
 }
