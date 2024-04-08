@@ -1,22 +1,5 @@
-const M = {
-	Get: "GET",
-	Put: "PUT",
-	Post: "POST",
-	Delete: "DELETE",
-} as const;
+export type Method = "GET" | "PUT" | "POST" | "DELETE";
 
-const A = {
-	Signin: "signin",
-	Signup: "signup",
-} as const;
+export type Access = "signin" | "signup" | "update";
 
-const Cm = {
-	Dark: "dark",
-	Light: "light",
-} as const;
-
-export type Method = typeof M;
-
-export type Access = typeof A;
-
-export type ColorMode = typeof Cm;
+export type ColorMode = "dark" | "light";
