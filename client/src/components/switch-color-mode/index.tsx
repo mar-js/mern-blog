@@ -1,7 +1,7 @@
 import moonImg from "@/assets/moon.png";
 import sunImg from "@/assets/sun.png";
 import { useThemeContext } from "@/contexts";
-import { FC } from "react";
+import type { FC } from "react";
 
 export const SwitchColorMode: FC = () => {
 	const {

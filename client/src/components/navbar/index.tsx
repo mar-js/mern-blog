@@ -8,7 +8,7 @@ import {
 } from "@/components";
 import { useUsersContext } from "@/contexts";
 import { useDetectMobileView } from "@/hooks";
-import { FC } from "react";
+import type { FC } from "react";
 
 export const Navbar: FC = () => {
 	const { detectMobileView } = useDetectMobileView();

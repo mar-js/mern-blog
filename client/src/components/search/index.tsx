@@ -1,4 +1,4 @@
-import { FC } from "react";
+import type { FC } from "react";
 
 export const Search: FC = () => (
 	<form action="GET" className="w-auto h-auto">

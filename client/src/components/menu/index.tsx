@@ -1,7 +1,7 @@
 import menu from "@/assets/menu.svg";
 import { BtnsSign, Links, SwitchColorMode } from "@/components";
 import { useThemeContext } from "@/contexts";
-import { FC, useState } from "react";
+import { type FC, useState } from "react";
 
 let previousUrl = location.href;
 

@@ -1,5 +1,5 @@
-import { IAccess } from "@/ts/interfaces";
-import { FC } from "react";
+import type { IAccess } from "@/ts/interfaces";
+import type { FC } from "react";
 import { Link } from "wouter";
 
 export const Access: FC<IAccess> = ({ access }) => (
