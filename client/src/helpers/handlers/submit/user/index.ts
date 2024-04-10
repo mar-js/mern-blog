@@ -4,7 +4,7 @@ import {
 	userLoadingAction,
 	userSuccessAction,
 } from "@/helpers/reducers";
-import { IHandleSubmitUser } from "@/ts/interfaces";
+import type { IHandleSubmitUser } from "@/ts/interfaces";
 import { navigate } from "wouter/use-location";
 
 export const handlerSubmitUser = async ({

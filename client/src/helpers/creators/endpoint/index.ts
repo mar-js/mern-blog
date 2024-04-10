@@ -1,4 +1,4 @@
-import { Access } from "@/ts/types";
+import type { Access } from "@/ts/types";
 
 export const createEndpoint = (access: Access, id: string): string => {
 	let endpoint = "";

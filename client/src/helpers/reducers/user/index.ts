@@ -1,4 +1,4 @@
-import { IAction, IInitialUserState } from "@/ts/interfaces";
+import type { IAction, IInitialUserState } from "@/ts/interfaces";
 
 const USER_LOADING = "USER_LOADING";
 const USER_SUCCESS = "USER_SUCCESS";

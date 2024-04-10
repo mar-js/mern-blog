@@ -1,5 +1,5 @@
-import { IAction, IInitialStateThemeMode } from "@/ts/interfaces";
-import { ColorMode } from "@/ts/types";
+import type { IAction, IInitialStateThemeMode } from "@/ts/interfaces";
+import type { ColorMode } from "@/ts/types";
 
 const THEME_MODE_CHANGE = "THEME_MODE_CHANGE";
 const THEME_MODE_CHANGE_ICON = "THEME_MODE_CHANGE_ICON";

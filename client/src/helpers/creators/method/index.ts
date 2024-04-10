@@ -1,4 +1,4 @@
-import { Access } from "@/ts/types";
+import type { Access } from "@/ts/types";
 
 export const createMethod = (access: Access): string => {
 	let method = "";
