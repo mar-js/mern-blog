@@ -1,4 +1,4 @@
-import { ILayout } from "@/ts/interfaces";
+import type { ILayout } from "@/ts/interfaces";
 import type { FC } from "react";
 
 export const Section: FC<ILayout> = ({ children, className }) => (
