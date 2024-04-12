@@ -1,6 +1,6 @@
 import { Forms, Title } from "@/components";
 import { Section } from "@/layouts";
-import { FC } from "react";
+import type { FC } from "react";
 
 export const SignInPage: FC = () => (
 	<Section className="flex flex-wrap h-[30rem] items-start justify-evenly">
