@@ -1,6 +1,6 @@
 import { UsersModel } from "@/contexts";
 import { handleSubmitUser, userReducer, userSuccessAction } from "@/helpers";
-import { IInitialUserState, IUsersModel } from "@/ts/interfaces";
+import type { IInitialUserState, IUsersModel } from "@/ts/interfaces";
 import type { FC, PropsWithChildren } from "react";
 import { useCallback, useEffect, useReducer } from "react";
 

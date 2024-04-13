@@ -4,8 +4,8 @@ import {
 	themeModeChangeIconAction,
 	themeModeReducer,
 } from "@/helpers";
-import { IInitialStateThemeMode, IThemeModeModel } from "@/ts/interfaces";
-import { FC, PropsWithChildren, useEffect, useReducer } from "react";
+import type { IInitialStateThemeMode, IThemeModeModel } from "@/ts/interfaces";
+import { type FC, type PropsWithChildren, useEffect, useReducer } from "react";
 
 export const ThemeProvider: FC<PropsWithChildren> = ({ children }) => {
 	const initialState: IInitialStateThemeMode = {
