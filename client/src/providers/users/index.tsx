@@ -1,5 +1,5 @@
 import { UsersModel } from "@/contexts";
-import { handleSubmitUser, userReducer, userSuccessAction } from "@/helpers";
+import { handlerSubmitUser, userReducer, userSuccessAction } from "@/helpers";
 import type { IInitialUserState, IUsersModel } from "@/ts/interfaces";
 import type { FC, PropsWithChildren } from "react";
 import { useCallback, useEffect, useReducer } from "react";
@@ -17,7 +17,7 @@ export const UsersProvider: FC<PropsWithChildren> = ({ children }) => {
 	const ID = USER?.id || userState.data?.id || "";
 
 	const handleSubmitUserMemorize = useCallback(
-		(access, e) => handleSubmitUser({ access, e, id, userDispatch }),
+		(access, e) => handlerSubmitUser({ access, e, id, userDispatch }),
 		[],
 	);
 
