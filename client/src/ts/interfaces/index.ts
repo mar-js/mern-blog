@@ -11,26 +11,31 @@ export interface IUser {
 
 export interface IInitialUserState {
 	loading: boolean;
-	data: Partial<IUser>;
+	data: IUser;
 	error: undefined | string;
 	isLogged: boolean;
 }
 
-export interface IAction {
+export interface IUserAction {
 	type: string;
-	payload: Partial<IUser | boolean | { error: string } | boolean | ColorMode>;
+	payload: IUser | null | { error: string };
+}
+
+export interface IThemeModeAction {
+	type: string;
+	payload: boolean | ColorMode;
 }
 
 export interface IHandleSubmitUser {
 	e: FormEvent;
 	access: Access;
-	userDispatch: Dispatch<IAction>;
+	userDispatch: Dispatch<IUserAction>;
 	id: string;
 }
 
 export interface IUsersModel {
 	userState: IInitialUserState;
-	userDispatch: Dispatch<IAction>;
+	userDispatch: Dispatch<IUserAction>;
 	handleSubmitUser: ({
 		access,
 		e,
