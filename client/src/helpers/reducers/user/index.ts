@@ -1,4 +1,4 @@
-import type { IAction, IInitialUserState } from "@/ts/interfaces";
+import type { IAction, IInitialUserState, IUser } from "@/ts/interfaces";
 
 const USER_LOADING = "USER_LOADING";
 const USER_SUCCESS = "USER_SUCCESS";
@@ -49,7 +49,7 @@ export const userLoadingAction = () => ({
 	payload: true,
 });
 
-export const userSuccessAction = (data: Partial<IUser>) => ({
+export const userSuccessAction = (data: IUser | null) => ({
 	type: USER_SUCCESS,
 	payload: data,
 });
