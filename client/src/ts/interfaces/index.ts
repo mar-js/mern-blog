@@ -16,26 +16,22 @@ export interface IInitialUserState {
 	isLogged: boolean;
 }
 
-export interface IUserAction {
+export interface IAction {
 	type: string;
-	payload: IUser | null | { error: string };
-}
-
-export interface IThemeModeAction {
-	type: string;
-	payload: boolean | ColorMode;
+	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+	payload: any;
 }
 
 export interface IHandleSubmitUser {
 	e: FormEvent;
 	access: Access;
-	userDispatch: Dispatch<IUserAction>;
+	userDispatch: Dispatch<IAction>;
 	id: string;
 }
 
 export interface IUsersModel {
 	userState: IInitialUserState;
-	userDispatch: Dispatch<IUserAction>;
+	userDispatch: Dispatch<IAction>;
 	handleSubmitUser: ({
 		access,
 		e,
