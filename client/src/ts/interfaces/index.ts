@@ -11,7 +11,7 @@ export interface IUser {
 
 export interface IInitialUserState {
 	loading: boolean;
-	data: IUser;
+	data: IUser | null;
 	error: undefined | string;
 	isLogged: boolean;
 }
@@ -22,22 +22,10 @@ export interface IAction {
 	payload: any;
 }
 
-export interface IHandleSubmitUser {
-	e: FormEvent;
-	access: Access;
-	userDispatch: Dispatch<IAction>;
-	id: string;
-}
-
 export interface IUsersModel {
 	userState: IInitialUserState;
 	userDispatch: Dispatch<IAction>;
-	handleSubmitUser: ({
-		access,
-		e,
-		id,
-		userDispatch,
-	}: IHandleSubmitUser) => Promise<void>;
+	id: string;
 }
 
 export interface ILayout extends PropsWithChildren {
@@ -62,4 +50,11 @@ export interface IThemeModeModel {
 
 export interface IAccess {
 	access: Access;
+}
+
+export interface IHandlerSubmitUser {
+	e: FormEvent<HTMLFormElement>;
+	access: Access;
+	userDispatch: Dispatch<IAction>;
+	id: string;
 }
