@@ -25,6 +25,7 @@ export const Access: FC<IAccess> = ({ access }) => (
 				name="email"
 				id="email"
 				placeholder="joedoe@gmail.com"
+				//autoComplete="off"
 				required
 			/>
 		</div>
@@ -37,6 +38,7 @@ export const Access: FC<IAccess> = ({ access }) => (
 				id="password"
 				placeholder="**********"
 				required
+				autoComplete="off"
 			/>
 		</div>
 		<button
