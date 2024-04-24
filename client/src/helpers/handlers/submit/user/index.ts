@@ -4,7 +4,7 @@ import {
 	userLoadingAction,
 	userSuccessAction,
 } from "@/helpers/reducers";
-import type { IHandleSubmitUser } from "@/ts/interfaces";
+import type { IHandlerSubmitUser } from "@/ts/interfaces";
 import { navigate } from "wouter/use-location";
 
 export const handlerSubmitUser = async ({
@@ -12,7 +12,7 @@ export const handlerSubmitUser = async ({
 	access,
 	userDispatch,
 	id,
-}: IHandleSubmitUser) => {
+}: IHandlerSubmitUser) => {
 	e.preventDefault();
 
 	const TARGET = e.target as HTMLFormElement;
