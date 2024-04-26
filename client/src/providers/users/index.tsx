@@ -1,8 +1,8 @@
 import { UsersModel } from "@/contexts";
-import { handlerSubmitUser, userReducer, userSuccessAction } from "@/helpers";
+import { userReducer, userSuccessAction } from "@/helpers";
 import type { IInitialUserState, IUsersModel } from "@/ts/interfaces";
 import type { FC, PropsWithChildren } from "react";
-import { useCallback, useEffect, useReducer } from "react";
+import { useEffect, useReducer } from "react";
 
 export const UsersProvider: FC<PropsWithChildren> = ({ children }) => {
 	const initialState: IInitialUserState = {
@@ -14,12 +14,7 @@ export const UsersProvider: FC<PropsWithChildren> = ({ children }) => {
 	const [userState, userDispatch] = useReducer(userReducer, initialState);
 	const USER_STORAGE = localStorage.getItem("user");
 	const USER = USER_STORAGE && JSON.parse(USER_STORAGE);
-	const ID = USER?.id || userState.data?.id || "";
-
-	const handleSubmitUserMemorize = useCallback(
-		(access, e) => handlerSubmitUser({ access, e, id, userDispatch }),
-		[],
-	);
+	const ID = (USER?.id || userState?.data?.id || "") as string;
 
 	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
 	useEffect(() => {
@@ -29,7 +24,7 @@ export const UsersProvider: FC<PropsWithChildren> = ({ children }) => {
 	const VALUE: IUsersModel = {
 		userState,
 		userDispatch,
-		handleSubmitUser: handleSubmitUserMemorize,
+		id: ID,
 	};
 
 	return <UsersModel.Provider value={VALUE}>{children}</UsersModel.Provider>;
