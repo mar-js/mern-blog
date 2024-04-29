@@ -28,7 +28,7 @@ export const userReducer = (state: IInitialUserState, action: IAction) => {
 			loading: false,
 			data: payload,
 			error: undefined,
-			isLogged: true,
+			isLogged: Boolean(payload),
 		};
 	}
 
