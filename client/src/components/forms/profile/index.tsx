@@ -1,7 +1,8 @@
 import { useUsersContext } from "@/contexts";
+import { handlerDeleteAccount } from "@/helpers";
 import type { FC } from "react";
 
-export const Profile: FC = () => {
+export const Profile: FC = ({ userDispatch, id }) => {
 	const {
 		userState: { data },
 	} = useUsersContext();
@@ -37,7 +38,16 @@ export const Profile: FC = () => {
 				</button>
 			</div>
 			<div className="flex justify-between items-center w-full">
-				<button className="text-red-500 hover:opacity-70" type="button">
+				<button
+					className="text-red-500 hover:opacity-70"
+					type="button"
+					onClick={() => {
+						handlerDeleteAccount({
+							userDispatch,
+							id,
+						});
+					}}
+				>
 					Delete Account
 				</button>
 				<button className="text-red-500 hover:opacity-70" type="button">

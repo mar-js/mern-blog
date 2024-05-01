@@ -16,7 +16,11 @@ export const Forms: FC<IAccess> = ({ access }) => {
 				access === "update" ? "w-3/4 max-[1000px]:w-full" : "w-[35rem]"
 			}
 		>
-			{access === "update" ? <Profile /> : <Access access={access} />}
+			{access === "update" ? (
+				<Profile userDispatch={userDispatch} id={id} />
+			) : (
+				<Access access={access} />
+			)}
 		</form>
 	);
 };
