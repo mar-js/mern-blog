@@ -5,21 +5,36 @@ import {
 	userSuccessAction,
 } from "@/helpers/reducers";
 import type { IHandlerSubmitUser } from "@/ts/interfaces";
+import type { Access } from "@/ts/types";
 import { navigate } from "wouter/use-location";
 
 export const handlerSubmitUser = async ({
 	e,
-	access,
 	userDispatch,
 	id,
 }: IHandlerSubmitUser) => {
+	const access = ((e.nativeEvent as SubmitEvent).submitter as HTMLButtonElement)
+		.id as Access;
+
 	e.preventDefault();
+
+	if (access === "delete") {
+		const CONFIRM_DELETE = confirm("You're sure?");
+
+		if (!CONFIRM_DELETE) return;
+	}
 
 	const TARGET = e.target as HTMLFormElement;
 	const GET_DATA = Object.fromEntries(new FormData(TARGET));
 	const DATA = Object.fromEntries(
 		Object.entries(GET_DATA).filter(([_, v]) => v !== ""),
 	);
+
+	if (access !== "delete" && !Object.entries(DATA).length) {
+		alert("You must load even if it is data to edit");
+
+		return;
+	}
 
 	const ENDPOINT = createEndpoint(access, id);
 	const METHOD = createMethod(access);
@@ -32,15 +47,14 @@ export const handlerSubmitUser = async ({
 			headers: {
 				"Content-Type": "application/json",
 			},
-			body: JSON.stringify(DATA),
+			...(access === "delete" ? {} : { body: JSON.stringify(DATA) }),
 		});
-
 		const { user } = await RESPONSE.json();
 
 		if (RESPONSE.ok) {
-			userDispatch(userSuccessAction({ ...user }));
+			userDispatch(userSuccessAction(METHOD === "DELETE" ? null : { ...user }));
 
-			return navigate(access === "signup" ? "/signin" : "/");
+			return navigate("/");
 		}
 
 		throw "ERROR CLIENT";
