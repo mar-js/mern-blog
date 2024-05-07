@@ -4,9 +4,9 @@ export const createEndpoint = (access: Access, id: string): string => {
 	let endpoint = "";
 
 	if (access === "signin" || access === "signup") {
-		endpoint = `/auth/${access}`;
+		endpoint = `auth/${access}`;
 	} else {
-		endpoint = `/users/${access}/${id}`;
+		endpoint = `users/${access}/${id}`;
 	}
 
 	return endpoint;
