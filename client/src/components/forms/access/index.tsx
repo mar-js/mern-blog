@@ -1,6 +1,5 @@
 import type { IAccess } from "@/ts/interfaces";
 import type { FC } from "react";
-import { Link } from "wouter";
 
 export const Access: FC<IAccess> = ({ access }) => (
 	<>
@@ -41,20 +40,5 @@ export const Access: FC<IAccess> = ({ access }) => (
 				autoComplete="off"
 			/>
 		</div>
-		<button
-			className="w-full rounded-md bg-blue-500 text-white py-3 mb-2 hover:opacity-70"
-			type="submit"
-		>
-			{access === "signup" ? "Sign Up" : "Sign In"}
-		</button>
-		<p className="font-bold text-md">
-			{access === "signup" ? "Have an account?" : "Dont have an account"}
-			<Link
-				href={access !== "signup" ? "/signup" : "/signin"}
-				className="text-blue-500 ml-2"
-			>
-				{access !== "signup" ? "Sign Up" : "Sign In"}
-			</Link>
-		</p>
 	</>
 );
