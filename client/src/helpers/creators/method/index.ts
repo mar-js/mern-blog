@@ -1,7 +1,7 @@
-import type { Access } from "@/ts/types";
+import type { Access, Method } from "@/ts/types";
 
-export const createMethod = (access: Access): string => {
-	let method = "";
+export const createMethod = (access: Access): Method => {
+	let method = "" as Method;
 
 	if (access === "signin" || access === "signup") {
 		method = "POST";
