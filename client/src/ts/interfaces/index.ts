@@ -54,7 +54,11 @@ export interface IAccess {
 
 export interface IHandlerSubmitUser {
 	e: FormEvent<HTMLFormElement>;
-	access: Access;
 	userDispatch: Dispatch<IAction>;
 	id: string;
+}
+
+export interface IBtnAction {
+	access: Access;
+	className?: string;
 }
