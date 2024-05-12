@@ -12,7 +12,7 @@ export const handlerSubmitUser = async ({
 	e,
 	userDispatch,
 	id,
-}: IHandlerSubmitUser) => {
+}: IHandlerSubmitUser): Promise<void> => {
 	const access = ((e.nativeEvent as SubmitEvent).submitter as HTMLButtonElement)
 		.id as Access;
 
