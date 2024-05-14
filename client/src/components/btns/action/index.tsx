@@ -7,9 +7,11 @@ export const BtnAction: FC<IBtnAction> = ({ access, className }) => {
 			? "Sign In"
 			: access === "signup"
 				? "Sign Up"
-				: access === "delete"
-					? "Delete Account"
-					: "Update Account";
+				: access === "signout"
+					? "Sign Out"
+					: access === "delete"
+						? "Delete Account"
+						: "Update Account";
 
 	return (
 		<button
