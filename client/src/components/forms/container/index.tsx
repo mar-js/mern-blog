@@ -19,14 +19,18 @@ export const Forms: FC<IAccess> = ({ access }) => {
 			{access === "update" ? (
 				<>
 					<Profile />
+					<BtnAction
+						access="update"
+						className="w-full mb-4 text-green-500 border border-green-500 hover:bg-green-500 hover:text-white"
+					/>
 					<div className="flex items-center justify-between">
 						<BtnAction
 							access="delete"
 							className="text-red-500 border border-red-500 hover:bg-red-500 hover:text-white"
 						/>
 						<BtnAction
-							access="update"
-							className="text-green-500 border border-green-500 hover:bg-green-500 hover:text-white"
+							access="signout"
+							className="text-red-500 border border-red-500 hover:bg-red-500 hover:text-white"
 						/>
 					</div>
 				</>
