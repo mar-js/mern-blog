@@ -7,6 +7,7 @@ export const signOutController = async (
 ) => {
 	try {
 		return res.status(200).clearCookie("access_token").json({
+			user: null,
 			message: "Signout successful",
 		});
 	} catch (error) {
