@@ -18,7 +18,7 @@ export const userDeleteController = async (
 	try {
 		await UserModel.findByIdAndDelete(req.params.userId);
 
-		return res.status(200).json({ user: null, message: "Update successful" });
+		return res.status(200).json({ user: null, message: "Delete successful" });
 	} catch (error) {
 		next(error);
 	}
