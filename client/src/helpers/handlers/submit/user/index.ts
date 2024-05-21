@@ -18,10 +18,10 @@ export const handlerSubmitUser = async ({
 
 	e.preventDefault();
 
-	if (access === "delete") {
-		const CONFIRM_DELETE = confirm("You're sure?");
+	if (access === "delete" || access === "signout") {
+		const CONFIRM = confirm("You're sure?");
 
-		if (!CONFIRM_DELETE) return;
+		if (!CONFIRM) return;
 	}
 
 	const TARGET = e.target as HTMLFormElement;
@@ -30,7 +30,11 @@ export const handlerSubmitUser = async ({
 		Object.entries(GET_DATA).filter(([_, v]) => v !== ""),
 	);
 
-	if (access !== "delete" && !Object.entries(DATA).length) {
+	if (
+		access !== "delete" &&
+		access !== "signout" &&
+		!Object.entries(DATA).length
+	) {
 		alert("You must load even if it is data to edit");
 
 		return;
@@ -47,12 +51,18 @@ export const handlerSubmitUser = async ({
 			headers: {
 				"Content-Type": "application/json",
 			},
-			...(access === "delete" ? {} : { body: JSON.stringify(DATA) }),
+			...(access === "delete" || access === "signout"
+				? {}
+				: { body: JSON.stringify(DATA) }),
 		});
 		const { user } = await RESPONSE.json();
 
 		if (RESPONSE.ok) {
-			userDispatch(userSuccessAction(METHOD === "DELETE" ? null : { ...user }));
+			userDispatch(
+				userSuccessAction(
+					access === "delete" || access === "signout" ? null : { ...user },
+				),
+			);
 
 			return navigate("/");
 		}
