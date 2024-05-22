@@ -1,4 +1,4 @@
-import { Access, BtnAction, Profile } from "@/components";
+import { Access, BtnAction, Profile, User } from "@/components";
 import { useUsersContext } from "@/contexts";
 import { createMethod, handlerSubmitUser } from "@/helpers";
 import type { IAccess } from "@/ts/interfaces";
@@ -13,10 +13,16 @@ export const Forms: FC<IAccess> = ({ access }) => {
 			action={METHOD}
 			onSubmit={(e) => handlerSubmitUser({ e, userDispatch, id })}
 			className={
-				access === "update" ? "w-3/4 max-[1000px]:w-full" : "w-[35rem]"
+				access === "profile"
+					? "w-full"
+					: access === "update"
+						? "w-3/4 max-[1000px]:w-full"
+						: "w-[35rem]"
 			}
 		>
-			{access === "update" ? (
+			{access === "profile" ? (
+				<User />
+			) : access === "update" ? (
 				<>
 					<Profile />
 					<BtnAction
