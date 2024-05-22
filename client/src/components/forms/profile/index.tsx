@@ -27,6 +27,7 @@ export const Profile: FC = () => {
 					className="mb-4 outline outline-1 outline-gray-300 focus-within:shadow-md focus-within:shadow-gray-400 focus-within:outline-none p-2"
 					placeholder="******"
 					name="password"
+					autoComplete="off"
 					type="text"
 				/>
 			</div>
