@@ -1,7 +1,7 @@
 import user from "@/assets/user.svg";
+import { Forms } from "@/components";
 import { useUsersContext } from "@/contexts";
 import { type FC, useState } from "react";
-import { Link } from "wouter";
 
 export const BtnUser: FC = () => {
 	const [showDropdown, setShowDropdown] = useState(false);
@@ -30,20 +30,7 @@ export const BtnUser: FC = () => {
 							{username} {email}
 						</h6>
 					</div>
-					<div className="flex flex-col">
-						<Link
-							href="/dashboard?tab=profile"
-							className="p-2 hover:text-white hover:bg-blue-500"
-						>
-							Profile
-						</Link>
-						<button
-							type="button"
-							className="text-left p-2 hover:text-white hover:bg-blue-500"
-						>
-							Sign out
-						</button>
-					</div>
+					<Forms access="profile" />
 				</div>
 			)}
 		</>
