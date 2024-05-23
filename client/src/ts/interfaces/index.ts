@@ -7,6 +7,7 @@ export interface IUser {
 	email: string;
 	createdAt: string;
 	updatedAt: string;
+	isAdmin: boolean;
 }
 
 export interface IInitialUserState {
