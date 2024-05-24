@@ -46,6 +46,7 @@ export const signUpController = async (
 				id: newUser._id,
 				username: newUser.username,
 				email: newUser.email,
+				isAdmin: newUser.isAdmin,
 				createdAt: newUser.createdAt,
 				updatedAt: newUser.updatedAt,
 			},

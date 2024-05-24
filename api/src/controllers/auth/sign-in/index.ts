@@ -48,6 +48,7 @@ export const signInController = async (
 		const TOKEN = jwt.sign(
 			{
 				id: findUser._id,
+				isAdmin: findUser.isAdmin,
 			},
 			process.env.JWT_TOKEN,
 			{
@@ -65,6 +66,7 @@ export const signInController = async (
 					id: findUser._id,
 					username: findUser.username,
 					email: findUser.email,
+					isAdmin: findUser.isAdmin,
 					createdAt: findUser.createdAt,
 					updatedAt: findUser.updatedAt,
 				},
