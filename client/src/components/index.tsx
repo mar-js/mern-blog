@@ -7,3 +7,4 @@ export { Menu } from "./menu";
 export * from "./forms";
 export { Copyright } from "./copyright";
 export * from "./btns";
+export { Textarea } from "./textarea";
