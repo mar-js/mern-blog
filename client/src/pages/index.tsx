@@ -1,7 +1,8 @@
 import { Footer, Header } from "@/layouts";
-import { FC } from "react";
+import type { FC } from "react";
 import { Route, Switch } from "wouter";
 import { AboutPage } from "./about";
+import { CreatePostPage } from "./create-post";
 import { DashboardPage } from "./dashboard";
 import { ErrorPage } from "./error";
 import { HomePage } from "./home";
@@ -20,6 +21,7 @@ export const Pages: FC = () => (
 			<Route path="/projects" component={ProjectsPage} />
 			<Route path="/signin" component={SignInPage} />
 			<Route path="/signup" component={SignUpPage} />
+			<Route path="/create-post" component={CreatePostPage} />
 		</Switch>
 		<Footer />
 	</>
