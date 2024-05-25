@@ -1,4 +1,4 @@
-import { Access, BtnAction, Profile, User } from "@/components";
+import { Access, BtnAction, CreatePost, Profile, User } from "@/components";
 import { useUsersContext } from "@/contexts";
 import { createMethod, handlerSubmitUser } from "@/helpers";
 import type { IAccess } from "@/ts/interfaces";
@@ -17,10 +17,12 @@ export const Forms: FC<IAccess> = ({ access }) => {
 					? "w-full"
 					: access === "update"
 						? "w-3/4 max-[1000px]:w-full"
-						: "w-[35rem]"
+						: "w-full"
 			}
 		>
-			{access === "profile" ? (
+			{access === "create-post" ? (
+				<CreatePost />
+			) : access === "profile" ? (
 				<User />
 			) : access === "update" ? (
 				<>
