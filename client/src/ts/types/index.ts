@@ -6,6 +6,7 @@ export type Access =
 	| "signup"
 	| "signout"
 	| "update"
-	| "delete";
+	| "delete"
+	| "create-post";
 
 export type ColorMode = "dark" | "light";
