@@ -20,6 +20,14 @@ export const Textarea: FC = () => {
 
 	const handlerNumberValue = (e: ChangeEvent<HTMLInputElement>) => {
 		setNumberValue(e.target.value);
+
+		if (!textareaRef.current) return;
+
+		if (textareaRef.current.style.fontSize.length) {
+			textareaRef.current.style.fontSize = "";
+		} else {
+			textareaRef.current.style.fontSize = `${numberValue}px`;
+		}
 	};
 
 	const handlerFont = (e: MouseEvent<HTMLButtonElement>) => {
