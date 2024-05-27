@@ -12,13 +12,7 @@ export const Forms: FC<IAccess> = ({ access }) => {
 		<form
 			action={METHOD}
 			onSubmit={(e) => handlerSubmitUser({ e, userDispatch, id })}
-			className={
-				access === "profile"
-					? "w-full"
-					: access === "update"
-						? "w-3/4 max-[1000px]:w-full"
-						: "w-full"
-			}
+			className={access === "profile" ? "w-full" : "w-2/3 max-[1000px]:w-full"}
 		>
 			{access === "create-post" ? (
 				<CreatePost />
