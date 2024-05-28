@@ -10,3 +10,5 @@ export type Access =
 	| "create-post";
 
 export type ColorMode = "dark" | "light";
+
+export type Sign = "Up" | "In";
