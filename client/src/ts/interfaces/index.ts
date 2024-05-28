@@ -1,5 +1,5 @@
 import type { Dispatch, FormEvent, PropsWithChildren } from "react";
-import type { Access, ColorMode } from "../types";
+import type { Access, ColorMode, Sign } from "../types";
 
 export interface IUser {
 	id: string;
@@ -62,4 +62,8 @@ export interface IHandlerSubmitUser {
 export interface IBtnAction {
 	access: Access;
 	className?: string;
+}
+
+export interface IIntroductionSign {
+	sign: Sign;
 }
