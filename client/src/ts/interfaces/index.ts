@@ -1,4 +1,11 @@
-import type { Dispatch, FormEvent, PropsWithChildren } from "react";
+import type {
+	ChangeEvent,
+	Dispatch,
+	FormEvent,
+	MouseEvent,
+	MutableRefObject,
+	PropsWithChildren,
+} from "react";
 import type { Access, ColorMode, Sign } from "../types";
 
 export interface IUser {
@@ -66,4 +73,22 @@ export interface IBtnAction {
 
 export interface IIntroductionSign {
 	sign: Sign;
+}
+
+export interface IUseTextarea {
+	textareaRef: MutableRefObject<HTMLTextAreaElement | null>;
+	styles: {
+		size: string;
+		uppercase: boolean;
+		color: string;
+	};
+	handlerSize: (e: ChangeEvent<HTMLInputElement>) => void;
+	handlerFontWeight: (e: MouseEvent<HTMLButtonElement>) => void;
+	handlerAlign: (e: MouseEvent<HTMLButtonElement>) => void;
+	handlerTextTransform: () => void;
+	handlerColor: (e: MouseEvent<HTMLButtonElement>) => void;
+}
+
+export interface IUseDetectMobileView {
+	detectMobileView: boolean;
 }
