@@ -1,6 +1,7 @@
+import type { IUseDetectMobileView } from "@/ts/interfaces";
 import { useEffect, useState } from "react";
 
-export const useDetectMobileView = () => {
+export const useDetectMobileView = (): IUseDetectMobileView => {
 	const [detectMobileView, setDetectMobileView] = useState(false);
 	const mobileMediaQuery: MediaQueryList = matchMedia("(max-width: 1000px)");
 
