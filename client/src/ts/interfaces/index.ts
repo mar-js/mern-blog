@@ -78,7 +78,7 @@ export interface IIntroductionSign {
 export interface IUseTextarea {
 	textareaRef: MutableRefObject<HTMLTextAreaElement | null>;
 	styles: {
-		size: string;
+		size: number;
 		uppercase: boolean;
 		color: string;
 	};
@@ -86,7 +86,7 @@ export interface IUseTextarea {
 	handlerFontWeight: (e: MouseEvent<HTMLButtonElement>) => void;
 	handlerAlign: (e: MouseEvent<HTMLButtonElement>) => void;
 	handlerTextTransform: () => void;
-	handlerColor: (e: MouseEvent<HTMLButtonElement>) => void;
+	handlerColor: (e: FormEvent<HTMLInputElement>) => void;
 }
 
 export interface IUseDetectMobileView {
