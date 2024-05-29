@@ -68,19 +68,19 @@ export const Textarea: FC = () => {
 				>
 					aA
 				</button>
-				<button
-					type="button"
-					className="p-2 w-16 border-r-2 flex flex-col justify-center items-center"
-					onChange={handlerColor}
+				<input
+					type="color"
+					className="h-12"
+					onInput={handlerColor}
 					value={styles.color}
-				>
-					<span className="-mb-1">A</span>
-					<input type="color" className="h-3.5 border-none outline-none" />
-				</button>
+				/>
 			</div>
 			<textarea
 				ref={textareaRef}
 				className="border w-full h-full p-5"
+				style={{
+					fontSize: `${styles.size}px`,
+				}}
 				placeholder="Your text here"
 			/>
 		</div>
