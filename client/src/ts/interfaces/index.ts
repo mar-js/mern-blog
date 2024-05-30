@@ -92,3 +92,7 @@ export interface IUseTextarea {
 export interface IUseDetectMobileView {
 	detectMobileView: boolean;
 }
+
+export interface IForms extends IAccess {
+	isWidthFull?: boolean;
+}
