@@ -1,10 +1,10 @@
 import { Access, BtnAction, CreatePost, Profile, User } from "@/components";
 import { useUsersContext } from "@/contexts";
 import { createMethod, handlerSubmitUser } from "@/helpers";
-import type { IAccess } from "@/ts/interfaces";
+import type { IForms } from "@/ts/interfaces";
 import type { FC } from "react";
 
-export const Forms: FC<IAccess> = ({ access }) => {
+export const Forms: FC<IForms> = ({ access, isWidthFull }) => {
 	const { userDispatch, id } = useUsersContext();
 	const METHOD = createMethod(access);
 
@@ -12,7 +12,7 @@ export const Forms: FC<IAccess> = ({ access }) => {
 		<form
 			action={METHOD}
 			onSubmit={(e) => handlerSubmitUser({ e, userDispatch, id })}
-			className={access === "profile" ? "w-full" : "w-2/3 max-[1000px]:w-full"}
+			className={isWidthFull ? "w-full" : "w-2/3 max-[1000px]:w-full"}
 		>
 			{access === "create-post" ? (
 				<CreatePost />
