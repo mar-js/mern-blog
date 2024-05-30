@@ -96,3 +96,7 @@ export interface IUseDetectMobileView {
 export interface IForms extends IAccess {
 	isWidthFull?: boolean;
 }
+
+export interface ISubtitle {
+	text: string;
+}
