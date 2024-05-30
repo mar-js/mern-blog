@@ -1,4 +1,4 @@
-import { Forms } from "@/components";
+import { Forms, Subtitle } from "@/components";
 import { useUsersContext } from "@/contexts";
 import { Section } from "@/layouts";
 import type { FC } from "react";
@@ -10,7 +10,8 @@ export const DashboardPage: FC = () => {
 	if (!userState.isLogged) navigate("/");
 
 	return (
-		<Section className="flex justify-center items-start">
+		<Section className="flex flex-col place-items-center">
+			<Subtitle text="Profile" />
 			<Forms access="update" />
 		</Section>
 	);
