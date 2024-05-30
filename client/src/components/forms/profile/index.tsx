@@ -9,7 +9,6 @@ export const Profile: FC = () => {
 
 	return (
 		<div className="w-full flex justify-center items-center flex-col">
-			<h3 className="text-3xl mb-4">Profile</h3>
 			<div className="flex flex-col w-full">
 				<input
 					className="mb-4 outline outline-1 outline-gray-300 focus-within:shadow-md focus-within:shadow-gray-400 focus-within:outline-none p-2"
