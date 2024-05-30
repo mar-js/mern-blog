@@ -21,67 +21,80 @@ export const Textarea: FC = () => {
 	} = useTextarea();
 
 	return (
-		<div className="w-full h-80">
-			<div className="w-auto h-auto flex border my-5">
+		<div className="w-full">
+			<div className="w-auto h-auto flex border mb-5">
 				<input
 					onChange={handlerSize}
 					type="number"
-					className="pl-5 pr-1 border-r-2"
+					className="pl-5 pr-1 border-r-2 hover:opacity-70"
 					value={styles.size}
 					min="10"
 					max="64"
 				/>
 				<button
 					type="button"
-					className="p-2 border-r-2"
+					className="p-2 border-r-2 hover:opacity-70"
 					onClick={handlerFontWeight}
 				>
 					<img id="bold" src={bold} alt="Icon Font Bold" />
 				</button>
 				<button
 					type="button"
-					className="p-2 border-r-2"
+					className="p-2 border-r-2 hover:opacity-70"
 					onClick={handlerFontWeight}
 				>
 					<img id="underline" src={underline} alt="Icon Font Underline" />
 				</button>
 				<button
 					type="button"
-					className="p-2 border-r-2"
+					className="p-2 border-r-2 hover:opacity-70"
 					onClick={handlerFontWeight}
 				>
 					<img id="italic" src={italic} alt="Icon Font Italic" />
 				</button>
-				<button type="button" className="p-2 border-r-2" onClick={handlerAlign}>
+				<button
+					type="button"
+					className="p-2 border-r-2 hover:opacity-70"
+					onClick={handlerAlign}
+				>
 					<img id="left" src={alignLeft} alt="Icon Align Left" />
 				</button>
-				<button type="button" className="p-2 border-r-2" onClick={handlerAlign}>
+				<button
+					type="button"
+					className="p-2 border-r-2 hover:opacity-70"
+					onClick={handlerAlign}
+				>
 					<img id="center" src={alignCenter} alt="Icon Align Center" />
 				</button>
-				<button type="button" className="p-2 border-r-2" onClick={handlerAlign}>
+				<button
+					type="button"
+					className="p-2 border-r-2 hover:opacity-70"
+					onClick={handlerAlign}
+				>
 					<img id="right" src={alignRight} alt="Icon Align Right" />
 				</button>
 				<button
 					type="button"
-					className="p-2 w-16 border-r-2"
+					className="p-2 w-16 border-r-2 hover:opacity-70"
 					onClick={handlerTextTransform}
 				>
 					aA
 				</button>
 				<input
 					type="color"
-					className="h-12"
+					className="h-12 hover:opacity-70"
 					onInput={handlerColor}
 					value={styles.color}
 				/>
 			</div>
 			<textarea
 				ref={textareaRef}
-				className="border w-full h-full p-5"
+				className="border w-full p-5 h-80"
 				style={{
 					fontSize: `${styles.size}px`,
 				}}
 				placeholder="Your text here"
+				required
 			/>
 		</div>
 	);
