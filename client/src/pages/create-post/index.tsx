@@ -4,6 +4,6 @@ import type { FC } from "react";
 
 export const CreatePostPage: FC = () => (
 	<Section>
-		<Forms access="create-post" />
+		<Forms access="create-post" isWidthFull />
 	</Section>
 );
