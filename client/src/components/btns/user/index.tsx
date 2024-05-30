@@ -30,7 +30,7 @@ export const BtnUser: FC = () => {
 							{username} {email}
 						</h6>
 					</div>
-					<Forms access="profile" />
+					<Forms access="profile" isWidthFull />
 				</div>
 			)}
 		</>
