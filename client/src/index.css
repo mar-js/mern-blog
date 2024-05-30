@@ -6,3 +6,17 @@ input {
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity));
 }
+
+select {
+  -moz-appearance: none;
+  /* Firefox */
+  -webkit-appearance: none;
+  /* Safari and Chrome */
+  appearance: none;
+
+  /* Now add a background image */
+  background-image: url("./assets/icons/arrow-down.svg");
+  background-repeat: no-repeat;
+  background-position: calc(100% - 1rem);
+  background-size: 1.5rem;
+}
