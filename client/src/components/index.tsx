@@ -9,3 +9,4 @@ export { Copyright } from "./copyright";
 export * from "./btns";
 export { Textarea } from "./textarea";
 export { IntroductionSign } from "./introduction-sign";
+export { Subtitle } from "./subtitle";
