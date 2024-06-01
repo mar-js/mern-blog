@@ -1,0 +1,1 @@
+export { postsCreateController } from "./create";
