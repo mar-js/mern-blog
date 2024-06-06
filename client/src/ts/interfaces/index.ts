@@ -8,6 +8,19 @@ import type {
 } from "react";
 import type { Access, ColorMode, Sign } from "../types";
 
+export interface IPosts {
+	title: string;
+	file: string;
+	content: string;
+	category: string;
+}
+
+export interface IInitialPostsState {
+	loading: boolean;
+	data: IPosts | null;
+	error: undefined | string;
+}
+
 export interface IUser {
 	id: string;
 	username: string;
@@ -34,6 +47,11 @@ export interface IUsersModel {
 	userState: IInitialUserState;
 	userDispatch: Dispatch<IAction>;
 	id: string;
+}
+
+export interface IPostsModel {
+	postsState: IInitialPostsState;
+	postsDispatch: Dispatch<IAction>;
 }
 
 export interface ILayout extends PropsWithChildren {
@@ -64,6 +82,11 @@ export interface IHandlerSubmitUser {
 	e: FormEvent<HTMLFormElement>;
 	userDispatch: Dispatch<IAction>;
 	id: string;
+}
+
+export interface IHandlerSubmitPosts {
+	e: FormEvent<HTMLFormElement>;
+	postsDispatch: Dispatch<IAction>;
 }
 
 export interface IBtnAction {
