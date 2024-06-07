@@ -95,6 +95,7 @@ export const Textarea: FC = () => {
 				}}
 				placeholder="Your text here"
 				required
+				name="content"
 			/>
 		</div>
 	);
