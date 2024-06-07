@@ -1,7 +1,7 @@
 import {
 	BtnUser,
 	BtnsSign,
-	Links,
+	LinksNavbar,
 	Menu,
 	Search,
 	SwitchColorMode,
@@ -21,7 +21,7 @@ export const Navbar: FC = () => {
 				<Menu />
 			) : (
 				<>
-					<Links />
+					<LinksNavbar />
 					<div className="flex relative">
 						<SwitchColorMode />
 						{userState.isLogged ? <BtnUser /> : <BtnsSign />}

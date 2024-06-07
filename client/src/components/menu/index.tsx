@@ -1,5 +1,5 @@
 import menu from "@/assets/menu.svg";
-import { BtnsSign, Links, SwitchColorMode } from "@/components";
+import { BtnsSign, LinksNavbar, SwitchColorMode } from "@/components";
 import { useThemeContext } from "@/contexts";
 import { type FC, useState } from "react";
 
@@ -50,7 +50,7 @@ export const Menu: FC = () => {
 						x
 					</button>
 					<SwitchColorMode />
-					<Links />
+					<LinksNavbar />
 					<BtnsSign />
 				</div>
 			)}
