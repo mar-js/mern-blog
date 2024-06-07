@@ -6,11 +6,12 @@ export const CreatePost: FC = () => (
 		<input
 			type="text"
 			placeholder="Title"
+			name="title"
 			className="w-full p-5 border mb-5"
 			required
 		/>
 		<select
-			name="categories"
+			name="category"
 			className="mb-5 p-5 border hover:opacity-70 hover:cursor-pointer"
 			required
 		>
@@ -20,6 +21,7 @@ export const CreatePost: FC = () => (
 		<input
 			type="file"
 			name="file"
+			accept="image/*"
 			className="mb-5 border file:mr-10  file:p-5 file:border-none file:outline-none file:hover:cursor-pointer file:hover:opacity-70"
 		/>
 		<Textarea />
